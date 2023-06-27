@@ -55,7 +55,7 @@ TS=
     OR "Terra" OR "Aqua" OR "NOAA" 
     OR "RADARSAT" OR "SeaWIFS" OR "TerraSAR-X" OR "AMSR2" OR "ICESat" OR "ALOS" OR "QuickSCAT" 
     OR "GOCE" OR "GRACE" OR "CFOSAT" OR "SRAL" OR "HY-2" OR "SCATSat" OR "CFOSAT" OR "MetOP" 
-    OR "DMSP" OR "Coriolis (+)" OR "OceanSAT" OR "MSG" OR "SNPP" OR "GCOM" OR "CALIPSO" OR "CloudSat" 
+    OR "DMSP" OR "Coriolis*" OR "OceanSAT" OR "MSG" OR "SNPP" OR "GCOM" OR "CALIPSO" OR "CloudSat" 
     OR "COSMO-SkyMed" OR "GOES" OR "GOSAT" OR "Jason" OR "KOMPSAT" OR "Meteosat" OR "MSG" OR "NIMBUS" 
     OR "OCO" OR "PROBA" OR "QuikSCAT" OR "TOMS" OR "RapidEye" OR "SAGE" 
     OR "Aeolus" OR "Biomass" OR "EarthCARE" OR "FLEX" OR "SMAP" OR "SMOS" OR "SPOT" OR "Suomi" 
@@ -65,6 +65,62 @@ TS=
     OR "EU copernicus service*"
 )
 ```
+
+### Satellite sensors
+
+```py=
+TS=
+(
+    "Synthetic Aperture Radar" OR "Along Track Scanning Radiometer" OR "Radar Altimeter" OR "Microwave Radiometer" 
+    OR "Wind Scatterometer" OR "Advanced Synthetic Aperture Radar" OR "Medium Resolution Imaging Spectrometer" OR "Multispectral Instrument" 
+    OR "Ocean and Land Color Instrument" OR "Sea and Land Surface Temperature Radiometer" 
+    OR "Synthetic Aperture Radar Altimeter" OR "UVN Spectrometer" 
+    OR "TIR radiometer" OR "Advanced Very High Resolution Radiometer" OR "spectrometer" OR "infrared radiometer" OR "microwave radiometer" 
+    OR "scatterometer" OR "gravimeter" OR "Lidar altimeter" OR "hyperspectral" OR "GNSS Altimetry" 
+    OR "radiometry" OR "spectrometry" 
+    OR "SAR" OR "ATSR" OR "RA" OR "MWR" OR "WSC" OR "ASAR" OR "MERIS" OR "MSI" OR "OLCI" OR "SLSTR" OR "SRAL" OR "UVN" OR "TIR" OR "AVHRR"
+)
+```
+
+### Satellite methods
+
+```py=
+TS=
+(
+    "interferometry" OR "ocean colour" OR "InSAR" 
+    OR "Data Fusion" OR "Feature Extraction" OR "Change Detection" OR "Image Classification" OR "Atmospheric Correction" 
+    OR "Radiometric Calibration" OR "Image Fusion" OR "Time-Series Analysis" OR "Geospatial Analysis" 
+    OR "land classification"
+)
+```
+
+### Results/outputs
+
+```py=
+TS=
+(
+    "Digital elevation model" OR DTM 
+    OR "Sea surface temperature" OR SST 
+    OR Doppler OR SAR 
+    OR "Vegetation Indices" OR "Vegetation index" 
+    OR Bathymetry OR "Ocean Color" OR "Chlorophyll-a Concentration" OR "Sea Surface Salinity" OR SSS OR "Sea Surface Height" OR SSH 
+    OR "Ocean Surface Winds" OR "Ocean Surface Currents" OR "Ocean Surface Waves" OR "Ocean Heat Content" 
+    OR "Sea Ice Concentration" OR "Sea Ice Extent" OR "Sea Ice Thickness" OR "Sea Ice Motion" OR "Iceberg Detection" OR "Ice Type Classification" 
+    OR "oil spill detection"
+)
+```
+
+### Chat GPT suggestion
+
+```py=
+TS=
+(
+    ("remote sensing" OR "synthetic aperture radar" OR "SAR" OR "lidar" OR "satellite imagery" OR "hyperspectral imaging" OR "thermal infrared" OR "microwave remote sensing" OR "radiometric calibration" OR "image classification" OR "change detection") 
+    AND 
+        (earth observation OR "land cover" OR "land use" OR vegetation OR urban OR coastal OR oceanography OR agriculture OR forestry OR geology OR "environmental monitoring")
+)
+```
+
 
 ## Norwegian terms
 
