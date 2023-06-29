@@ -5,11 +5,27 @@ Everything that mentions remote sensing in any capacity/context. Focus on Norweg
 
 ## Search string, WoS
 
-Without agencies string: 5235 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/15b917ab-fc4f-48b6-8b48-1eb9b70a39b0-94b7ab55/relevance/1
+Without agencies string: 5475 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/44e3fae1-db54-4c70-ba0b-eccae9ef8d3b-94c33908/relevance/1 
 
 Note that there are citation mesos and WOS categories for Remote sensing:
-* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669 - 99 not found)
-* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (874 - 195 not found)
+* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669 - 94 not found)
+* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (874 - 189 not found)
+
+There are also journals - these contain 465 results for Norway (47 not found by our search string)
+
+```py
+(CU="norway") 
+AND 
+SO = 
+(EARTH OBSERVATION "AND" REMOTE SENSING 
+OR EUROPEAN JOURNAL OF REMOTE SENSING 
+OR GISCIENCE REMOTE SENSING 
+OR INTERNATIONAL JOURNAL OF REMOTE SENSING 
+OR JOURNAL OF APPLIED REMOTE SENSING 
+OR REMOTE SENSING 
+OR REMOTE SENSING OF ENVIRONMENT
+)
+```
 
 ### General terms
 
@@ -19,7 +35,8 @@ Issue: "GIS" can be used in other contexts, e.g. genome islands, greenland ice s
 * Added `"aerial photograph*"`
 * Added `"aerial laser scan*"`
 * Added `remotely sensed`
-* Added `unmanned aerial system*`
+* Added `unmanned aerial system*` and `unoccupied aerial vehicle$`
+* Added `satellite data`
 
 ```py
 TS=
@@ -29,9 +46,13 @@ TS=
     OR "ground truthing" OR "ground validat*"
     OR "GIScience"
     OR "aerial photograph*"
+    OR "satellite data"
     OR
     (
-        ("satellite$" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS")
+        ("satellite$" 
+        OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs"
+        OR "GIS"
+        )
         AND
             ("mapping" OR "mapped" OR "ground measure*" OR "monitor*" OR "sentinel" 
             OR "imaging" OR "image$" OR "imagery"
@@ -47,7 +68,9 @@ Additional terms to be combined with GIS (not covered above or in later phrases)
 TS=
 (   "GIS"
     AND
-        ("spatial" OR "geographic*" OR "topograph*" OR "elevation"
+        ("satellite$" 
+        OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs"
+        OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
         OR "land cover"
         OR "map" OR "maps"
         OR "travel" OR "roads" OR "transport"
@@ -76,8 +99,8 @@ TS=
     OR "ESA" OR "NASA" OR "JAXA" OR "NOAA" OR "ISRO" OR "CNSA" OR "CNES" OR "EUMETSAT" OR "DLR"
     )
     AND 
-        ("drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
-        OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
+        ("drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
+        OR "GIS" OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
         OR "map" OR "maps" OR "mapping" OR "mapped" 
         OR "ground measure*" OR "sentinel" 
         OR "imaging" OR "image$" OR "imagery"
@@ -119,8 +142,9 @@ TS=
         OR "LSTM" OR "CIMR" OR "CO2M" OR "MTG" OR "ALTIUS"
         )
         AND 
-            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
-            OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
+            ("satellit*" 
+            OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" 
+            OR "GIS" OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
             OR "map" OR "maps" OR "mapping" OR "mapped" 
             OR "ground measure*" OR "sentinel" 
             OR "imaging" OR "image$" OR "imagery"
@@ -140,14 +164,14 @@ Combined those assumed to be more ambiguous with remote sensing terms. `spectrom
 ```py
 TS=
 (
-    ("Synthetic Aperture Radar" OR "Along Track Scanning Radiometer" OR "Radar Altimeter" OR "Microwave Radiometer" 
-    OR "Wind Scatterometer" OR "Advanced Synthetic Aperture Radar" OR "Medium Resolution Imaging Spectrometer" OR "Multispectral Instrument" 
-    OR "Ocean and Land Color Instrument" OR "Sea and Land Surface Temperature Radiometer" 
-    OR "Synthetic Aperture Radar Altimeter" 
-    OR "UVN Spectrometer" 
-    OR "radiometry" OR "TIR radiometer" OR "Advanced Very High Resolution Radiometer" OR "infrared radiometer" OR "microwave radiometer" 
-    OR "spectroradiometer"
-    OR "scatterometer" OR "gravimeter" OR "Lidar altimeter" OR "hyperspectral" OR "GNSS Altimetry" 
+    ("Synthetic Aperture Radar" OR "Along Track Scanning Radiomet*" OR "Radar Altimet*" OR "Microwave Radiomet*" 
+    OR "Wind Scatteromet*" OR "Advanced Synthetic Aperture Radar" OR "Medium Resolution Imaging Spectromet*" OR "Multispectral Instrument*" 
+    OR "Land Colo$r Instrument*" OR "Ocean Colo$r Instrument*" R "Land Surface Temperature Radiomet*" OR "Sea Surface Temperature Radiomet*" 
+    OR "Synthetic Aperture Radar Altimet*" 
+    OR "UVN Spectromet*" 
+    OR "radiometry" OR "TIR radiomet*" OR "Advanced Very High Resolution Radiomet*" OR "infrared radiomet*" OR "microwave radiomet*" 
+    OR "spectroradiomet*"
+    OR "scatteromet*" OR "gravimet*" OR "Lidar altimet*" OR "hyperspectral" OR "GNSS Altimet*" 
     )
     OR
     (
@@ -156,7 +180,9 @@ TS=
         OR "spectrometry" OR "spectrometer" 
         )
         AND
-            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
+            ("satellit*" 
+            OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
+            OR "GIS"
             OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
             OR "map" OR "maps" OR "mapping" OR "mapped" 
             OR "ground measure*" OR "sentinel" 
@@ -186,8 +212,9 @@ TS=
         OR "land classification"
         )
         AND
-            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
-            OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
+            ("satellit*" 
+            OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
+            OR "GIS" OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
             OR "land cover"
             OR "map" OR "maps" OR "mapping" OR "mapped" 
             OR "ground measure*" OR "sentinel" 
@@ -205,14 +232,16 @@ TS=
     ("Digital elevation model" OR "DTM" 
     OR "Doppler" OR "SAR" 
     OR "Vegetation Indices" OR "Vegetation index" 
-    OR "Bathymetry" OR "Ocean Color" OR "Chlorophyll-a Concentration" 
+    OR "Bathymetr*" OR "Ocean Colo$r" OR "Chlorophyll-a Concentration" 
     OR "Sea Surface Salinity" OR "SSS" OR "Sea Surface Height" OR "SSH" OR "Sea surface temperature" OR "SST" 
     OR "Ocean Surface Winds" OR "Ocean Surface Currents" OR "Ocean Surface Waves" OR "Ocean Heat Content" 
     OR "Sea Ice Concentration" OR "Sea Ice Extent" OR "Sea Ice Thickness" OR "Sea Ice Motion" OR "Iceberg Detection" OR "Ice Type Classification" 
     OR "oil spill detection"
     )
     AND
-        ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
+        ("satellit*" 
+        OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
+        OR "GIS"
         OR "map" OR "maps" OR "mapping" OR "mapped" 
         OR "ground measure*" OR "sentinel" 
         OR "imaging" OR "image$" OR "imagery"
@@ -225,6 +254,7 @@ TS=
 
 ## Norwegian terms
 
-jord observasjon
-jordobservasjon
-fjernmåling
+* jord observasjon
+* jordobservasjon
+* fjernmåling
+* fjernsansing
