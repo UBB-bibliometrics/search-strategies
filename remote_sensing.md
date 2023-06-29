@@ -5,6 +5,12 @@ Everything that mentions remote sensing in any capacity/context. Focus on Norweg
 
 ## Search string, WoS
 
+Without agencies string: 5235 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/15b917ab-fc4f-48b6-8b48-1eb9b70a39b0-94b7ab55/relevance/1
+
+Note that there are citation mesos and WOS categories for Remote sensing:
+* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669 - 99 not found)
+* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (874 - 195 not found)
+
 ### General terms
 
 Issue: "GIS" can be used in other contexts, e.g. genome islands, greenland ice sheet, gas-insulated switchgear. However, it is often used in abstracts without being written out in full...(https://www.webofscience.com/wos/woscc/summary/a45d20d7-f37d-4ef5-b20e-b799df5de0e3-94b47eee/relevance/1)
@@ -13,6 +19,7 @@ Issue: "GIS" can be used in other contexts, e.g. genome islands, greenland ice s
 * Added `"aerial photograph*"`
 * Added `"aerial laser scan*"`
 * Added `remotely sensed`
+* Added `unmanned aerial system*`
 
 ```py
 TS=
@@ -24,7 +31,7 @@ TS=
     OR "aerial photograph*"
     OR
     (
-        ("satellite$" OR "drone$" OR "unmanned aerial vehicle$" OR "GIS")
+        ("satellite$" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS")
         AND
             ("mapping" OR "mapped" OR "ground measure*" OR "monitor*" OR "sentinel" 
             OR "imaging" OR "image$" OR "imagery"
@@ -69,7 +76,7 @@ TS=
     OR "ESA" OR "NASA" OR "JAXA" OR "NOAA" OR "ISRO" OR "CNSA" OR "CNES" OR "EUMETSAT" OR "DLR"
     )
     AND 
-        ("drone$" OR "unmanned aerial vehicle$" OR "GIS"
+        ("drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
         OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
         OR "map" OR "maps" OR "mapping" OR "mapped" 
         OR "ground measure*" OR "sentinel" 
@@ -112,7 +119,7 @@ TS=
         OR "LSTM" OR "CIMR" OR "CO2M" OR "MTG" OR "ALTIUS"
         )
         AND 
-            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "GIS"
+            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
             OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
             OR "map" OR "maps" OR "mapping" OR "mapped" 
             OR "ground measure*" OR "sentinel" 
@@ -149,7 +156,7 @@ TS=
         OR "spectrometry" OR "spectrometer" 
         )
         AND
-            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "GIS"
+            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
             OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
             OR "map" OR "maps" OR "mapping" OR "mapped" 
             OR "ground measure*" OR "sentinel" 
@@ -179,7 +186,7 @@ TS=
         OR "land classification"
         )
         AND
-            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "GIS"
+            ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
             OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
             OR "land cover"
             OR "map" OR "maps" OR "mapping" OR "mapped" 
@@ -205,7 +212,7 @@ TS=
     OR "oil spill detection"
     )
     AND
-        ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "GIS"
+        ("satellit*" OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned aerial system$" OR "GIS"
         OR "map" OR "maps" OR "mapping" OR "mapped" 
         OR "ground measure*" OR "sentinel" 
         OR "imaging" OR "image$" OR "imagery"
