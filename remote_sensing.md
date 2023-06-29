@@ -1,5 +1,7 @@
 # Remote sensing
 
+Bestilling: Nansen senter for fjernmåling
+
 ## Coverage
 Everything that mentions remote sensing in any capacity/context. Focus on Norwegian research. 
 
