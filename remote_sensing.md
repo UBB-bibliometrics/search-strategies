@@ -7,25 +7,53 @@ Everything that mentions remote sensing in any capacity/context. Focus on Norweg
 
 ## Search string, WoS
 
-Without agencies string: 5475 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/44e3fae1-db54-4c70-ba0b-eccae9ef8d3b-94c33908/relevance/1 
+Without agencies string: 5541 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/42549025-0e48-423c-b94b-8298bc650246-94f0e65b/relevance/1
 
 Note that there are citation mesos and WOS categories for Remote sensing:
-* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669 - 94 not found)
-* https://www.webofscience.com/wos/woscc/summary/6ba93a63-c594-4f74-a36a-68e69080170c-94eaaaa3/relevance/1 (874 - 189 not found)
+* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669)
+* https://www.webofscience.com/wos/woscc/summary/6ba93a63-c594-4f74-a36a-68e69080170c-94eaaaa3/relevance/1 (874)
 
-There are also journals - these contain 465 results for Norway (47 not found by our search string)
+
+### Journal search
+
+Included content from journals about remote sensing. This was done via a search for journals including "remote sensing", "earth observation" or "GIS" int he title. Only those where the topic was perceieved to be exclusive were added (i.e. *IEEE Geosciences and Remote Sensing* was not included as geosciences seemed too broad and would result in articles from other fields being added).
 
 ```py
 (CU="norway") 
 AND 
 SO = 
 (EARTH OBSERVATION "AND" REMOTE SENSING 
+OR IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERVATIONS "AND" REMOTE SENSING 
+OR INTERNATIONAL JOURNAL OF APPLIED EARTH OBSERVATION "AND" GEOINFORMATION 
+OR GISCIENCE REMOTE SENSING OR TRANSACTIONS IN GIS OR ADVANCES IN REMOTE SENSING OF THE ATMOSPHERE FROM SPACE "AND" FROM THE GROUND 
+OR ADVANCES IN REMOTE SENSING OF THE MIDDLE "AND" UPPER ATMOSPHERE "AND" THE IONOSPHERE 
+OR ATMOSPHERIC REMOTE SENSING EARTH S SURFACE TROPOSPHERE STRATOSPHERE "AND" MESOSPHERE I 
+OR ATMOSPHERIC REMOTE SENSING EARTH S SURFACE TROPOSPHERE STRATOSPHERE "AND" MESOSPHERE II 
+OR CANADIAN JOURNAL OF REMOTE SENSING 
+OR EGYPTIAN JOURNAL OF REMOTE SENSING "AND" SPACE SCIENCES 
 OR EUROPEAN JOURNAL OF REMOTE SENSING 
-OR GISCIENCE REMOTE SENSING 
 OR INTERNATIONAL JOURNAL OF REMOTE SENSING 
+OR ISPRS JOURNAL OF PHOTOGRAMMETRY "AND" REMOTE SENSING 
+OR ITALIAN JOURNAL OF REMOTE SENSING RIVISTA ITALIANA DI TELERILEVAMENTO 
 OR JOURNAL OF APPLIED REMOTE SENSING 
+OR JOURNAL OF THE INDIAN SOCIETY OF REMOTE SENSING 
+OR KOREAN JOURNAL OF REMOTE SENSING 
+OR LAND SURFACE CHARACTERIZATION "AND" REMOTE SENSING OF OCEAN PROCESSES 
+OR MIDDLE "AND" UPPER ATMOSPHERES SMALL SCALE STRUCTURES "AND" REMOTE SENSING 
+OR NATURAL HAZARDS MONITORING "AND" ASSESSMENT USING REMOTE SENSING TECHNIQUE 
+OR PFG JOURNAL OF PHOTOGRAMMETRY REMOTE SENSING "AND" GEOINFORMATION SCIENCE 
+OR PHOTOGRAMMETRIC ENGINEERING "AND" REMOTE SENSING 
+OR PHOTONIRVACHAK JOURNAL OF THE INDIAN SOCIETY OF REMOTE SENSING 
 OR REMOTE SENSING 
-OR REMOTE SENSING OF ENVIRONMENT
+OR REMOTE SENSING "AND" APPLICATIONS EARTH ATMOSPHERE "AND" OCEANS 
+OR REMOTE SENSING APPLICATIONS SOCIETY "AND" ENVIRONMENT 
+OR REMOTE SENSING EARTH OCEAN "AND" ATMOSPHERE 
+OR REMOTE SENSING FOR LAND SURFACE CHARACTERISATION 
+OR REMOTE SENSING IN ECOLOGY "AND" CONSERVATION 
+OR REMOTE SENSING INVERSION PROBLEMS "AND" NATURAL HAZARDS 
+OR REMOTE SENSING LETTERS OR REMOTE SENSING OF EARTHS SURFACE "AND" ATMOSPHERE 
+OR REMOTE SENSING OF ENVIRONMENT OR REMOTE SENSING OF TRACE CONSTITUENTS IN THE LOWER STRATOSPHERE TROPOSPHERE "AND" THE EARTH S SURFACE GLOBAL OBSERVATIONS AIR POLLUTION "AND" THE ATMOSPHERIC CORRECTION OR SCIENCE OF REMOTE SENSING 
+OR SOVIET JOURNAL OF REMOTE SENSING
 )
 ```
 
@@ -77,37 +105,6 @@ TS=
         OR "map" OR "maps" OR "mapping" OR "mapped" 
         OR "travel" OR "roads" OR "transport"
         OR "GIS based" OR "GIS approach" OR "GIS method$" OR "GIS tool$" OR "GIS software" OR "GIS database$"
-        )
-)
-```
-
-
-### Agencies
-
-Difficult as a number of physics papers? Have dropped `satellit*"`, `monitor*`, `optical` and `sensor$` from the second phrase to try and help. I actually suspect that those found by this phrase (and this phrase alone, not the others) are not particularly relevant - check. A lot of space/astrophysics?
-
-```py
-TS=
-(
-    ("European space agency"
-    OR "national aeronautics and space administration"
-    OR "Japan Aerospace Exploration Agency" 
-    OR "National Oceanic and Atmospheric Administration"
-    OR "Indian Space Research Organization"
-    OR "China National Space Administration"
-    OR "Centre National D’Etudes Spatiales" OR "French Space Agency"
-    OR "European Organization for the Exploration of Meteorological Satellites"
-    OR "German Aerospace Centre"
-    OR "ESA" OR "NASA" OR "JAXA" OR "NOAA" OR "ISRO" OR "CNSA" OR "CNES" OR "EUMETSAT" OR "DLR"
-    )
-    AND 
-        ("drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
-        OR "GIS" OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
-        OR "map" OR "maps" OR "mapping" OR "mapped" 
-        OR "ground measure*" OR "sentinel" 
-        OR "imaging" OR "image$" OR "imagery"
-        OR "radar"
-        OR "Change Detection" OR "Image Classification" OR "land cover" OR "land classification"
         )
 )
 ```
@@ -168,7 +165,7 @@ TS=
 (
     ("Synthetic Aperture Radar" OR "Along Track Scanning Radiomet*" OR "Radar Altimet*" OR "Microwave Radiomet*" 
     OR "Wind Scatteromet*" OR "Advanced Synthetic Aperture Radar" OR "Medium Resolution Imaging Spectromet*" OR "Multispectral Instrument*" 
-    OR "Land Colo$r Instrument*" OR "Ocean Colo$r Instrument*" R "Land Surface Temperature Radiomet*" OR "Sea Surface Temperature Radiomet*" 
+    OR "Land Colo$r Instrument*" OR "Ocean Colo$r Instrument*" OR "Land Surface Temperature Radiomet*" OR "Sea Surface Temperature Radiomet*" 
     OR "Synthetic Aperture Radar Altimet*" 
     OR "UVN Spectromet*" 
     OR "radiometry" OR "TIR radiomet*" OR "Advanced Very High Resolution Radiomet*" OR "infrared radiomet*" OR "microwave radiomet*" 
@@ -253,6 +250,35 @@ TS=
 )
 ```
 
+### Agencies - currently not included in string
+
+Difficult as a number of physics papers? Have dropped `satellit*"`, `monitor*`, `optical` and `sensor$` from the second phrase to try and help. I actually suspect that those found by this phrase (and this phrase alone, not the others) are not particularly relevant - check. A lot of space/astrophysics?
+
+```py
+TS=
+(
+    ("European space agency"
+    OR "national aeronautics and space administration"
+    OR "Japan Aerospace Exploration Agency" 
+    OR "National Oceanic and Atmospheric Administration"
+    OR "Indian Space Research Organization"
+    OR "China National Space Administration"
+    OR "Centre National D’Etudes Spatiales" OR "French Space Agency"
+    OR "European Organization for the Exploration of Meteorological Satellites"
+    OR "German Aerospace Centre"
+    OR "ESA" OR "NASA" OR "JAXA" OR "NOAA" OR "ISRO" OR "CNSA" OR "CNES" OR "EUMETSAT" OR "DLR"
+    )
+    AND 
+        ("drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
+        OR "GIS" OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
+        OR "map" OR "maps" OR "mapping" OR "mapped" 
+        OR "ground measure*" OR "sentinel" 
+        OR "imaging" OR "image$" OR "imagery"
+        OR "radar"
+        OR "Change Detection" OR "Image Classification" OR "land cover" OR "land classification"
+        )
+)
+```
 
 ## Norwegian terms
 
