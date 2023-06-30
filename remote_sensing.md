@@ -11,7 +11,7 @@ Without agencies string: 5475 (2012-2022) - https://www.webofscience.com/wos/wos
 
 Note that there are citation mesos and WOS categories for Remote sensing:
 * https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669 - 94 not found)
-* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (874 - 189 not found)
+* https://www.webofscience.com/wos/woscc/summary/6ba93a63-c594-4f74-a36a-68e69080170c-94eaaaa3/relevance/1 (874 - 189 not found)
 
 There are also journals - these contain 465 results for Norway (47 not found by our search string)
 
