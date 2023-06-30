@@ -74,7 +74,7 @@ TS=
         OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs"
         OR "spatial" OR "geographic*" OR "topograph*" OR "elevation"
         OR "land cover"
-        OR "map" OR "maps"
+        OR "map" OR "maps" OR "mapping" OR "mapped" 
         OR "travel" OR "roads" OR "transport"
         OR "GIS based" OR "GIS approach" OR "GIS method$" OR "GIS tool$" OR "GIS software" OR "GIS database$"
         )
