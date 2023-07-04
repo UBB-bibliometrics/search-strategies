@@ -59,7 +59,7 @@ OR SOVIET JOURNAL OF REMOTE SENSING
 
 ### General terms
 
-Issue: "GIS" can be used in other contexts, e.g. genome islands, greenland ice sheet, gas-insulated switchgear. However, it is often used in abstracts without being written out in full...(https://www.webofscience.com/wos/woscc/summary/a45d20d7-f37d-4ef5-b20e-b799df5de0e3-94b47eee/relevance/1)
+Issue: "GIS" can be used in other contexts, e.g. genome islands, greenland ice sheet, gas-insulated switchgear. However, it is often used in abstracts without being written out in full so can't rely on the full term...(https://www.webofscience.com/wos/woscc/summary/a45d20d7-f37d-4ef5-b20e-b799df5de0e3-94b47eee/relevance/1)
 
 * Added `PPGIS`- public participation GIS
 * Added `"aerial photograph*"`
@@ -76,7 +76,7 @@ TS=
     OR "ground truthing" OR "ground validat*"
     OR "GIScience"
     OR "aerial photograph*"
-    OR "satellite data"
+    OR "satellite data" OR "satellite derived"
     OR
     (
         ("satellite$" 
@@ -87,6 +87,7 @@ TS=
             ("mapping" OR "mapped" OR "ground measure*" OR "monitor*" OR "sentinel" 
             OR "imaging" OR "image$" OR "imagery"
             OR "optical" OR "radar" OR "sensor$"
+            OR "data assimilation" OR "machine learning" OR "kalman filter" OR "EnKF"
             )
     )
 )
@@ -114,6 +115,7 @@ TS=
 Combined those assumed to be more ambiguous with remote sensing terms. Note that the ambiguous terms are not combined with `"remote sensing" OR "earth observation" OR "geographical information system*" OR "GIS" OR "GIScience"` because there is no point - these will be found by phrase 1 anyway.
 
 * Added `TanDEM-X`
+* `("Copernicus" NEAR/5 "service*")` should find e.g. copernicus climate change service, copernicus marine service etc.
 
 ```py
 TS=
@@ -125,8 +127,9 @@ TS=
     OR "RADARSAT" OR "SeaWIFS" OR "TerraSAR-X" OR "AMSR2" OR "ICESat" OR "QuickSCAT" OR "QuikSCAT" 
     OR "SCATSat" OR "CFOSAT" OR "OceanSAT" OR "CloudSat" OR "KOMPSAT" OR "Meteosat" 
     OR "COSMO-SkyMed" OR "TerraSAR-X" OR "TanDEM-X" OR "Topex Poseidon" 
-    OR "EarthExplorer-10" OR "EarthExlorer-11" 
-    OR "EU copernicus service*"
+    OR "EarthExplorer-10" OR "EarthExlorer-11"
+    OR "NeXtSIM" 
+    OR ("Copernicus" NEAR/5 "service*")
     )
     OR
     (
@@ -139,6 +142,7 @@ TS=
         OR "Swarm" OR "SWOT" OR "TanDEM" OR "TRMM" 
         OR "CHIME" OR "CRISTAL" OR "ROSE-L" 
         OR "LSTM" OR "CIMR" OR "CO2M" OR "MTG" OR "ALTIUS"
+        OR "TOPAZ*"
         )
         AND 
             ("satellit*" 
@@ -176,7 +180,7 @@ TS=
     (
         ("SAR" OR "ATSR" OR "RA" OR "MWR" OR "WSC" OR "ASAR" OR "MERIS" OR "MSI" 
         OR "OLCI" OR "SLSTR" OR "SRAL" OR "UVN" OR "TIR" OR "AVHRR" OR "NIR-HSI"
-        OR "spectrometry" OR "spectrometer" 
+        OR "spectrometry" OR "spectrometer" OR "altimetr*"
         )
         AND
             ("satellit*" 
@@ -232,10 +236,17 @@ TS=
     OR "Doppler" OR "SAR" 
     OR "Vegetation Indices" OR "Vegetation index" 
     OR "Bathymetr*" OR "Ocean Colo$r" OR "Chlorophyll-a Concentration" 
-    OR "Sea Surface Salinity" OR "SSS" OR "Sea Surface Height" OR "SSH" OR "Sea surface temperature" OR "SST" 
-    OR "Ocean Surface Winds" OR "Ocean Surface Currents" OR "Ocean Surface Waves" OR "Ocean Heat Content" 
-    OR "Sea Ice Concentration" OR "Sea Ice Extent" OR "Sea Ice Thickness" OR "Sea Ice Motion" OR "Iceberg Detection" OR "Ice Type Classification" 
-    OR "oil spill detection"
+    OR "ocean state"
+    OR "Sea Surface Salinity" OR "SSS" 
+    OR "Sea Surface Height" OR "SSH" OR "sea level"
+    OR "Sea surface temperature" OR "SST" 
+    OR "Ocean Surface Winds" OR "Ocean Surface Currents" OR "Ocean Surface Waves" OR "eddies" OR "eddy"
+    OR "Ocean Heat Content" 
+    OR "Sea Ice Concentration" OR "Sea Ice Extent" OR "sea ice area" OR "Sea Ice Thickness" OR "Sea Ice Motion" 
+    OR "Ice sheet$" OR "Iceberg Detection" OR "Ice Type Classification"
+    OR "mass balance"  
+    OR "oil spill detection" OR "harmful algal bloom*" OR "harmful algae bloom*"
+    OR "operational oceanograph*"
     )
     AND
         ("satellit*" 
@@ -246,6 +257,7 @@ TS=
         OR "imaging" OR "image$" OR "imagery"
         OR "optical" OR "radar" OR "sensor$"
         OR "Change Detection" OR "Image Classification" OR "land cover" OR "land classification"
+        OR "data assimilation" OR "machine learning" OR "kalman filter" OR "EnKF"
         )
 )
 ```
@@ -257,7 +269,7 @@ Difficult as a number of physics papers? Have dropped `satellit*"`, `monitor*`, 
 ```py
 TS=
 (
-    ("European space agency"
+    ("European space agency" OR "climate change initiative"
     OR "national aeronautics and space administration"
     OR "Japan Aerospace Exploration Agency" 
     OR "National Oceanic and Atmospheric Administration"
@@ -267,6 +279,8 @@ TS=
     OR "European Organization for the Exploration of Meteorological Satellites"
     OR "German Aerospace Centre"
     OR "ESA" OR "NASA" OR "JAXA" OR "NOAA" OR "ISRO" OR "CNSA" OR "CNES" OR "EUMETSAT" OR "DLR"
+    OR "NORUT"
+    OR "Kartverket"
     )
     AND 
         ("drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
@@ -286,3 +300,5 @@ TS=
 * jordobservasjon
 * fjernmåling
 * fjernsansing
+* NORUT
+* Kartverket
