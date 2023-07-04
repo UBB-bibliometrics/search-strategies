@@ -7,7 +7,7 @@ Everything that mentions remote sensing in any capacity/context. Focus on Norweg
 
 ## Search string, WoS
 
-Without agencies string: 6017 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/8a9c6da5-b81e-4468-835f-82ede01c9756-95cf7422/relevance/1
+Without agencies string: 6027 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/830e277c-7636-4a96-8b19-a0bfe4347df1-95d06168/relevance/1
 
 Note that there are citation mesos and WOS categories for Remote sensing:
 * https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669)
@@ -88,6 +88,7 @@ TS=
             OR "imaging" OR "image$" OR "imagery"
             OR "optical" OR "radar" OR "sensor$"
             OR "data assimilation" OR "machine learning" OR "kalman filter" OR "EnKF"
+            OR "ocean* model*" OR "atmosph* model*"
             )
     )
 )
