@@ -234,11 +234,13 @@ TS=
 
 ### Results/outputs
 
+Note that `doppler` cannot be combined with `imaging` etc. because this leads to many papers from cardiology/ultrasounds. 
+
 ```py
 TS=
 (
     ("Digital elevation model" OR "DTM" 
-    OR "Doppler" OR "SAR" 
+    OR "SAR" 
     OR "Vegetation Indices" OR "Vegetation index" 
     OR "Bathymetr*" OR "Ocean Colo$r" OR "Chlorophyll-a Concentration" 
     OR "ocean state"
@@ -260,6 +262,20 @@ TS=
         OR "map" OR "maps" OR "mapping" OR "mapped" 
         OR "ground measure*" OR "sentinel" 
         OR "imaging" OR "image$" OR "imagery"
+        OR "optical" OR "radar" OR "sensor$"
+        OR "Change Detection" OR "Image Classification" OR "land cover" OR "land classification"
+        OR "data assimilation" OR "machine learning" OR "kalman filter" OR "EnKF"
+        )
+)
+OR
+TS=
+("Doppler"
+    AND
+        ("satellit*" 
+        OR "drone$" OR "unmanned aerial vehicle$" OR "unmanned air vehicle$" OR "unmanned aerial system$" OR "unoccupied aerial vehicle$" OR "UAV" OR "UAVs" 
+        OR "GIS"
+        OR "map" OR "maps" OR "mapping" OR "mapped" 
+        OR "ground measure*" OR "sentinel" 
         OR "optical" OR "radar" OR "sensor$"
         OR "Change Detection" OR "Image Classification" OR "land cover" OR "land classification"
         OR "data assimilation" OR "machine learning" OR "kalman filter" OR "EnKF"
