@@ -19,8 +19,6 @@ Note that there are citation mesos and WOS categories for Remote sensing:
 Included content from journals about remote sensing. This was done via a search for journals including "remote sensing", "earth observation" or "GIS" int he title. Only those where the topic was perceieved to be exclusive were added (i.e. *IEEE Geosciences and Remote Sensing* was not included as geosciences seemed too broad and would result in articles from other fields being added).
 
 ```py
-(CU="norway") 
-AND 
 SO = 
 (EARTH OBSERVATION "AND" REMOTE SENSING 
 OR IEEE JOURNAL OF SELECTED TOPICS IN APPLIED EARTH OBSERVATIONS "AND" REMOTE SENSING 
