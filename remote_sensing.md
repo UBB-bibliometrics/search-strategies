@@ -18,7 +18,7 @@ Carried out in the Web of Science Core Collection:
 - WOS.ESCI: 2018 to 2023
 - WOS.SSCI: 1956 to 2023
 
-Without agencies string: 6027 results (2012-2022) - https://www.webofscience.com/wos/woscc/summary/2acdd66e-e63f-4383-9372-8d76b2d129c4-9728ce92/relevance/1
+Without agencies string: 5790 results (2012-2022) - https://www.webofscience.com/wos/woscc/summary/fe141c02-ade6-436d-bb24-1e3cebd14a73-97442ebc/relevance/1
 
 ### Journal search
 
