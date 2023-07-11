@@ -2,17 +2,23 @@
 
 Bestilling: Nansen senter for fjernmåling
 
-## Coverage
-Everything that mentions remote sensing in any capacity/context. Focus on Norwegian research. 
+## Scope
 
-## Search string, WoS
+Everything that mentions remote sensing in any capacity/context. Focus on Norwegian research (i.e. publications where a Norwegian address is given as an affiliation). 
 
-Without agencies string: 6027 (2012-2022) - https://www.webofscience.com/wos/woscc/summary/830e277c-7636-4a96-8b19-a0bfe4347df1-95d06168/relevance/1
+Timespan: Publication date = 2012-01-01 to 2022-12-31
 
-Note that there are citation mesos and WOS categories for Remote sensing:
-* https://www.webofscience.com/wos/woscc/summary/17287e55-10ee-4de9-baac-591c9981d5ec-94b5f766/relevance/1 (669)
-* https://www.webofscience.com/wos/woscc/summary/6ba93a63-c594-4f74-a36a-68e69080170c-94eaaaa3/relevance/1 (874)
+## Search string, Web of Science
 
+The following strings are combined together with OR (except from the agencies string). They are then combined with AND with `CU="Norway"` to filter for Norwegian publications. Carried out 11th July 2023. 
+
+Carried out in the Web of Science Core Collection:
+- WOS.SCI: 1945 to 2023
+- WOS.AHCI: 1975 to 2023
+- WOS.ESCI: 2018 to 2023
+- WOS.SSCI: 1956 to 2023
+
+Without agencies string: 6027 results (2012-2022) - https://www.webofscience.com/wos/woscc/summary/2acdd66e-e63f-4383-9372-8d76b2d129c4-9728ce92/relevance/1
 
 ### Journal search
 
@@ -57,7 +63,7 @@ OR SOVIET JOURNAL OF REMOTE SENSING
 
 ### General terms
 
-Issue: "GIS" can be used in other contexts, e.g. genome islands, greenland ice sheet, gas-insulated switchgear. However, it is often used in abstracts without being written out in full so can't rely on the full term...(https://www.webofscience.com/wos/woscc/summary/a45d20d7-f37d-4ef5-b20e-b799df5de0e3-94b47eee/relevance/1)
+Issue: "GIS" can be used in other contexts, e.g. genome islands, greenland ice sheet, gas-insulated switchgear. However, it is often used in abstracts without being written out in full so can't rely on the full term. Therefore a second phrase is included here (under).
 
 * Added `PPGIS`- public participation GIS
 * Added `"aerial photograph*"`
@@ -263,7 +269,7 @@ TS=
 
 ### Agencies - currently not included in string
 
-Difficult as a number of physics papers? Have dropped `satellit*"`, `monitor*`, `optical` and `sensor$` from the second phrase to try and help. I actually suspect that those found by this phrase (and this phrase alone, not the others) are not particularly relevant - check. A lot of space/astrophysics?
+Difficult to include as seems to find a number of physics papers. Have dropped `satellit*"`, `monitor*`, `optical` and `sensor$` from the second phrase to try and help. I actually suspect that those found by this phrase (and this phrase alone, not the others) are not particularly relevant. Thus this phrase is not currently included in the final search strategy.
 
 ```py
 TS=
