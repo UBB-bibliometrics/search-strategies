@@ -2,6 +2,8 @@
 
 Bestilling: Nansen senter for fjernmåling
 
+Two search strings are included: one for Web of Science (Clarivate) and one for running against Norway's national CRIS system via Tableau. 
+
 ## Scope
 
 Everything that mentions remote sensing in any capacity/context. Focus on Norwegian research (i.e. publications where a Norwegian address is given as an affiliation). 
@@ -315,11 +317,97 @@ TS=
 )
 ```
 
-## Norwegian terms
+## Search string, CRIStin via Tableau
 
-* jord observasjon
-* jordobservasjon
-* fjernmåling
-* fjernsansing
-* NORUT
-* Kartverket
+Run in Tableau desktop v. 2021.4 against an extract of Cristin data from DUCT. Searches within result titles (written works only - Cristin categories: books, chapters, reports/dissertations, and journal publications; and only works registered with a publication year 2012-2022).
+
+```
+IF 
+CONTAINS(LOWER([result_title]),	"remote sensing"	)
+OR CONTAINS(LOWER([result_title]),	"remotely sensed"	)
+OR CONTAINS(LOWER([result_title]),	"earth observation"	)
+OR CONTAINS(LOWER([result_title]),	"geographical information system"	)
+OR CONTAINS(LOWER([result_title]),	"geographic information system"	)
+OR CONTAINS ([result_title],	"PPGIS"	)
+OR CONTAINS(LOWER([result_title]),	"airborne laser scan"	)
+OR CONTAINS(LOWER([result_title]),	"aerial laser scan"	)
+OR CONTAINS(LOWER([result_title]),	"ground truthing"	)
+OR CONTAINS(LOWER([result_title]),	"ground validat"	)
+OR CONTAINS([result_title],	"GIScience"	)
+OR CONTAINS(LOWER([result_title]),	"aerial photograph"	)
+OR CONTAINS(LOWER([result_title]),	"satellite data"	)
+OR CONTAINS(LOWER([result_title]),	"satellite derived"	)
+OR
+(
+    (CONTAINS (LOWER([result_title]),	"satellite" )
+    OR CONTAINS(LOWER([result_title]),	"drone"	)
+    OR CONTAINS(LOWER([result_title]),	"unmanned aerial vehicle" )
+    OR CONTAINS(LOWER([result_title]),	"unmanned air vehicle" )
+    OR CONTAINS(LOWER([result_title]),	"unmanned aerial system"	)
+    OR CONTAINS(LOWER([result_title]),	"unoccupied aerial vehicle" )
+    OR CONTAINS([result_title],	"UAV" )
+    OR CONTAINS([result_title],	"UAVs" )
+    OR CONTAINS([result_title],	"GIS" )
+    )
+      AND
+      (CONTAINS(LOWER([result_title]),	"mapping" )
+      OR CONTAINS(LOWER([result_title]),	"mapped" )
+      OR CONTAINS(LOWER([result_title]),	"ground measure" )
+      OR CONTAINS(LOWER([result_title]),	"monitor" )
+      OR CONTAINS(LOWER([result_title]),	"sentinel" )
+      OR CONTAINS(LOWER([result_title]),	"imaging" )
+      OR CONTAINS(LOWER([result_title]),	"image" )
+      OR CONTAINS(LOWER([result_title]),	"imagery" )
+      OR CONTAINS(LOWER([result_title]),	"optical" )
+      OR CONTAINS(LOWER([result_title]),	"radar" )
+      OR CONTAINS(LOWER([result_title]),	"sensor" )
+      OR CONTAINS(LOWER([result_title]),	"data assimilation" )
+      OR CONTAINS(LOWER([result_title]),	"machine learning" )
+      OR CONTAINS(LOWER([result_title]),	"kalman filter" )
+      OR CONTAINS([result_title],	"EnKF" )
+      OR CONTAINS(LOWER([result_title]),	"ocean model" )
+      OR CONTAINS(LOWER([result_title]),	"atmosphere model" )
+      OR CONTAINS(LOWER([result_title]),	"atmospheric model" )
+      )
+)   
+OR 
+(
+    (CONTAINS ([result_title],	"GIS" ))
+AND
+    (CONTAINS (LOWER([result_title]),	"satellite" )
+    OR CONTAINS (LOWER([result_title]),	"drone" )
+    OR CONTAINS (LOWER([result_title]),	"unmanned aerial vehicle" )
+    OR CONTAINS (LOWER([result_title]),	"unmanned air vehicle" )
+    OR CONTAINS (LOWER([result_title]),	"unmanned aerial system" )
+    OR CONTAINS (LOWER([result_title]),	"unoccupied aerial vehicle" )
+    OR CONTAINS ([result_title],	"UAV" )
+    OR CONTAINS ([result_title],	"UAVs" )
+    OR CONTAINS (LOWER([result_title]),	"spatial" )
+    OR CONTAINS (LOWER([result_title]),	"geographic" )
+    OR CONTAINS (LOWER([result_title]),	"topograph" )
+    OR CONTAINS (LOWER([result_title]),	"elevation" )
+    OR CONTAINS (LOWER([result_title]),	"land cover" )
+    OR CONTAINS (LOWER([result_title]),	"map" )
+    OR CONTAINS (LOWER([result_title]),	"maps" )
+    OR CONTAINS (LOWER([result_title]),	"travel" )
+    OR CONTAINS (LOWER([result_title]),	"roads" )
+    OR CONTAINS (LOWER([result_title]),	"transport" )
+    OR CONTAINS ([result_title],	"GIS based" )
+    OR CONTAINS ([result_title],	"GIS approach" )
+    OR CONTAINS ([result_title],	"GIS method" )
+    OR CONTAINS ([result_title],	"GIS tool" )
+    OR CONTAINS ([result_title],	"GIS software" )
+    OR CONTAINS ([result_title],	"GIS database" )
+    )
+)
+OR
+(CONTAINS (LOWER([result_title]),	"jordobservasjon" )
+OR CONTAINS (LOWER([result_title]),	"fjernmåling" )
+OR CONTAINS (LOWER([result_title]),	"fjernsansing" )
+) 
+THEN "Remote sensing"
+ELSE NULL
+END
+```
+
+
