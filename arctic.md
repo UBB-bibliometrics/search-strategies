@@ -15,6 +15,8 @@ Norwegian terms are not normally included in the NIB abstract search terms (as t
 
 Terms `ice sheet` and `ice cap` were tested, but mostly added additional works that were not arctic-related. This was also the case for the Norwegian counties `troms` and `finnmark` (particularly much medical research referencing Tromsø or the Tromsø study). `permafrost` was added even though these works can refer to areas outside the arctic - we decided to include it as permafrost mostly occurs in the polar circle. 
 
+Some additional NOT terms are combined with `polar` in the abstract search to avoid other uses of the word, e.g. polar acids, polar lipids. Less necessary with titles search.
+
 ```
 // Journals
 IF REGEXP_MATCH(LOWER([journal]), "\barctic")
@@ -242,6 +244,10 @@ REGEXP_MATCH(LOWER([Nib Abstract]), "\bpolar\b")
 AND NOT 
     (CONTAINS(LOWER([Nib Abstract]),"polar metabol")
     OR CONTAINS(LOWER([Nib Abstract]),"polar opposit")
+    OR CONTAINS(LOWER([Nib Abstract]),"polar lipid")
+    OR CONTAINS(LOWER([Nib Abstract]),"polar acid")
+    OR CONTAINS(LOWER([Nib Abstract]),"membrane")
+    OR CONTAINS(LOWER([Nib Abstract]),"hydroph")
     )
 )
 OR CONTAINS(LOWER([Nib Abstract]),	"circumpolar"	)
