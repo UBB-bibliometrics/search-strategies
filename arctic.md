@@ -1,9 +1,13 @@
 # Arctic research search string
 
+Authors: Caroline S. Armitage and Eli H. Seland, University of Bergen
+
 ## Scope
 All research publications related to the arctic in the last 10 years. We include "polar" even though this may relate to the south pole too. 
 
 ## Search strategy - Tableau
+
+Search is designed for searching in the Cristin database (Norway's national research information system), in Tableau via DUCT (from Sikt). 
 
 The terms are grouped into sections, which are duplicated between result titles, book titles and abstracts:
 - geographical places
