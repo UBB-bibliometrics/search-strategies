@@ -11,12 +11,13 @@ Search in Cristin for publications, using keywords in Norwegian and English, in 
 
 // STRING FOR TESTING: Under development
 
+
 IF CONTAINS(LOWER([journal]), "music therapy") 
 OR CONTAINS(LOWER([journal]), "musikkterapi")
+
 OR
 CONTAINS(LOWER([result_title]), "music therap")
 OR CONTAINS(LOWER([result_title]), "musikkterap")
-
 OR
 ((
 CONTAINS (LOWER([result_title]), "music")
@@ -52,10 +53,9 @@ OR
 ((
 CONTAINS (LOWER([result_title]), "musik")
 OR CONTAINS(LOWER([result_title]), "improvis")
-OR CONTAINS(LOWER([result_title]), "komponer")
-OR CONTAINS(LOWER([result_title]), "komposisjon")
 OR CONTAINS(LOWER([result_title]), "sang")
-OR CONTAINS(LOWER([result_title]), "syng")
+OR REGEXP_MATCH(LOWER([result_title]), "\bsynge\b")
+OR REGEXP_MATCH(LOWER([result_title]), "\bsynger\b")
 OR REGEXP_MATCH(LOWER([result_title]), "\bkor\b")
 OR CONTAINS(LOWER([result_title]), "lytt")
 OR CONTAINS(LOWER([result_title]), "rytmisk")
@@ -124,8 +124,8 @@ CONTAINS (LOWER([result_title_anthology]), "musik")
 OR CONTAINS(LOWER([result_title_anthology]), "improvis")
 OR CONTAINS(LOWER([result_title_anthology]), "komponer")
 OR CONTAINS(LOWER([result_title_anthology]), "komposisjon")
-OR CONTAINS(LOWER([result_title_anthology]), "sang")
-OR CONTAINS(LOWER([result_title_anthology]), "syng")
+OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bsynge\b")
+OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bsynger\b")
 OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bkor\b")
 OR CONTAINS(LOWER([result_title_anthology]), "lytt")
 OR CONTAINS(LOWER([result_title_anthology]), "rytmisk")
@@ -157,9 +157,6 @@ OR CONTAINS(LOWER([result_title_anthology]), "aldersheim")
 THEN 'music therapy'
 ELSE NULL
 END
-
-
-
 
 ```
 //Notes:
