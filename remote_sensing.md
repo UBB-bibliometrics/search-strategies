@@ -1,8 +1,10 @@
 # Remote sensing
 
+Authors: Caroline S. Armitage and Eli H. Seland, University of Bergen
+
 Bestilling: Nansen senter for fjernmåling
 
-Two search strings are included: one for Web of Science (Clarivate) and one for running against Norway's national CRIS system via Tableau. 
+Two search strings are included: one for Web of Science (Clarivate) and one for running against Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt).
 
 ## Scope
 
