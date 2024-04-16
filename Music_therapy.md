@@ -1,11 +1,13 @@
 # Music therapy search string
 
+Author: Eli H. Seland, University of Bergen.
+
 ## Scope
-Publications about music therapy in Cristin 
+Publications about music therapy in Norwegian and English. Scientific publications and theses.
 
 ## Search strategy 
 
-Search in Cristin for publications, using keywords in Norwegian and English, in combination with journal, book and anthology names 
+Search in Cristin for publications, using keywords in Norwegian and English, in combination with journal, book and anthology names. The search is designed for searching in the Cristin database (Norway's national research information system), in Tableau via DUCT (from Sikt). 
 
 ```
 
