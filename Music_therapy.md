@@ -3,17 +3,24 @@
 Author: Eli H. Seland, University of Bergen.
 
 ## Scope
-Publications about music therapy in Norwegian and English. Scientific publications and theses.
+Publications about music therapy in Norwegian and English. Scientific publications and theses. Based on a search from an advisor from the Polyfon research cluster. 
+
+Institutions: 
+- Universitetet i Bergen, Griegakademiet 184-18-30
+-	NORCE, Helse og Samfunn, GAMUT 2057-2-2-
+-	Norges Musikkhøgskole, Fagseksjon for musikkpedagogikk og musikkterapi (forskingssenteret CREMAH om mulig) 178-3-7
+-	Høgskulen på Vestlandet 203-10 og 11
+-	Helse Bergen 1936
+-	Helse Fonna 1932
+-	Helse Førde 1935
+-	NKS Olaviken alderspsykiatriske sykehus (i Cristin: velg enhet «Private ideelle i Helse Vest» for å få opp Olaviken som alternativ)1937-1
+-	Betanien sykehus (i Cristin: velg enhet «Private ideelle i Helse Vest» for å få opp Betanien som alternativ)1937-3
 
 ## Search strategy 
 
 Search in Cristin for publications, using keywords in Norwegian and English, in combination with journal, book and anthology names. The search is designed for searching in the Cristin database (Norway's national research information system), in Tableau via DUCT (from Sikt). 
 
 ```
-
-// STRING FOR TESTING: Under development
-
-
 IF CONTAINS(LOWER([journal]), "music therapy") 
 OR CONTAINS(LOWER([journal]), "musikkterapi")
 
@@ -161,15 +168,5 @@ ELSE NULL
 END
 
 ```
-//Notes:
-// 
-- Universitetet i Bergen, Griegakademiet 184-18-30
--	NORCE, Helse og Samfunn, GAMUT 2057-2-2-
--	Norges Musikkhøgskole, Fagseksjon for musikkpedagogikk og musikkterapi (forskingssenteret CREMAH om mulig) 178-3-7
--	Høgskulen på Vestlandet 203-10 og 11
--	Helse Bergen 1936
--	Helse Fonna 1932
--	Helse Førde 1935
--	NKS Olaviken alderspsykiatriske sykehus (i Cristin: velg enhet «Private ideelle i Helse Vest» for å få opp Olaviken som alternativ)1937-1
--	Betanien sykehus (i Cristin: velg enhet «Private ideelle i Helse Vest» for å få opp Betanien som alternativ)1937-3
+
 
