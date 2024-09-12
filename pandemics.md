@@ -32,7 +32,7 @@ As we are restricting the search to 2020 onwards, we can potentially simplify th
 ```py
 TS=(
 "coronavirus" OR "covid"
-OR "COVID19*" OR "COVID2019" OR "COVID-19*" OR "COVID-2019*" OR "2019-nCoV" OR "SARS-CoV-2019" OR "SARS-CoV-2" OR "SARS-COV2" OR "SARSCOV-2" OR "SARS-CoV-19" OR "NCOV"
+OR "COVID19*" OR "COVID2019" OR "COVID-19*" OR "COVID-2019*" OR "2019-nCoV" OR "SARS-CoV-2019" OR "SARS-CoV-2" OR "SARS-COV2" OR "SARSCOV-2" OR "SARSCOV2" OR "SARS-CoV-19" OR "NCOV"
 OR "pandemic*"
 )
 ```
@@ -73,8 +73,32 @@ TS=(
 
 ### Search string, Cristin
 
-A title search, consider "quarantine", "PPE", 
+Title search only.
 
 ```py
+IF 
+CONTAINS(LOWER([result_title]),	"pandemi"	)
+OR CONTAINS(LOWER([result_title]),	"covid"	)
+OR CONTAINS(LOWER([result_title]),	"corona"	)
+OR CONTAINS(LOWER([result_title]),	"korona"	)
+OR REGEXP_MATCH(([result_title]), "\bSARS")
+OR REGEXP_MATCH(LOWER([result_title]), "\bncov")
 
+OR CONTAINS(LOWER([result_title]),	"face mask"	)
+OR CONTAINS(LOWER([result_title]),	"facemask"	)
+OR CONTAINS(LOWER([result_title]),	"ansiktsmask"	)
+OR CONTAINS(LOWER([result_title]),	"personal protective equipment"	)
+OR REGEXP_MATCH(([result_title]), "\bPPE\b")
+
+OR CONTAINS(LOWER([result_title]),	"quarantine"	)
+OR CONTAINS(LOWER([result_title]),	"karantene"	)
+OR CONTAINS(LOWER([result_title]),	"lock-down"	)
+OR CONTAINS(LOWER([result_title]),	"lockdown"	)
+OR CONTAINS(LOWER([result_title]),	"nedstenging"	)
+OR CONTAINS(LOWER([result_title]),	"skolestenging"	)
+OR CONTAINS(LOWER([result_title]),	"en-metersregel"	)
+OR CONTAINS(LOWER([result_title]),	"en metersregel"	)
+
+THEN "pandemic"
+END
 ```
