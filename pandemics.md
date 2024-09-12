@@ -21,30 +21,59 @@ The following strings were used for inspiration, to find terminology, and in som
 
 ## Search strings
 
-Two search strings are included: one for Web of Science (Clarivate) (English only) and one for running against Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian).
+Two search strings are included: one for Web of Science (Clarivate) (English only; Topic (title, abstract, keywords, keywordsplus) and one for running against Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian; title search only).
 
 As we are restricting the search to 2020 onwards, we can potentially simplify the search for coronavirus terms (i.e. go broader, not specify which coronavirus). 
 
 ### Search string, Web of Science
 
+#1
+
 ```py
 TS=(
 "coronavirus" OR "covid"
-OR "COVID19*" OR "COVID2019" OR "COVID-19*" OR "COVID-2019*" OR "2019-nCoV" OR "SARS-CoV-2019" OR "SARS-CoV-2" OR "SARS-CoV-19" OR "NCOV"
+OR "COVID19*" OR "COVID2019" OR "COVID-19*" OR "COVID-2019*" OR "2019-nCoV" OR "SARS-CoV-2019" OR "SARS-CoV-2" OR "SARS-COV2" OR "SARSCOV-2" OR "SARS-CoV-19" OR "NCOV"
 OR "pandemic*"
 )
 ```
 
+#2
+
+The PPE part of this search is difficult - many other fields use these terms (e.g. firefighters, construction workers), and the abbreviation is used for many other things. Face mask results are not always about the pandemic but do mostly seem to be about medical face masks. 
+
 ```py
 TS=(
-"personal protective equipment" OR "PPE" OR "PPEs"
-OR "facemask*" OR "face mask*" OR "face shield*" OR "FFP1" OR "FFP2"
-OR (("surgical" OR "respiratory" OR "protect*" OR "facial" OR "face" OR "N99" OR "N95" OR "N 99" OR "N 95") NEAR/3 "mask*")
+"facemask*" OR "face mask*" OR "face shield*" OR "FFP1" OR "FFP2"
+OR 	(("surgical" OR "respiratory" OR "protect*" OR "facial" OR "face" OR "N99" OR "N95" OR "N 99" OR "N 95")
+	NEAR/3 "mask*"
+	)
+OR (("N99" OR "N95" OR "N 99" OR "N 95" OR "FFP" OR "P100") NEAR/3 "respirator*")
+OR 	(("personal protective equipment")
+	NOT ("construction" OR "firefight*" OR "kiln" OR "cement" OR "police" OR "recycl*" OR "radiation"
+	OR "ship*" OR "oil" OR "H2S" OR "mining" OR "miner*" OR "mercury" OR "heavy metal*"
+	OR "soot" OR "agricult*" OR "farm*" OR "pesticide*" OR "cold")
+	)
 )
 ```
 
+#3
+
+Here I tried with "social distanc*" but "social distance" seems to be mostly about non-pandemic topics, which "distancing" is much more focused. 
+
+```py
+TS=(
+"lockdown" OR "social distancing" OR "physical distancing"
+)
+```
+
+#4
+```py
+#1 OR #2 OR #3
+```
 
 ### Search string, Cristin
+
+A title search, consider "quarantine", "PPE", 
 
 ```py
 
