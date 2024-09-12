@@ -18,6 +18,7 @@ The following strings were used for inspiration, to find terminology, and in som
 
 - PubMed covid-19 article filters: https://pubmed.ncbi.nlm.nih.gov/help/#covid19-article-filters
 - Canada's Drug Agency covid-19 search strings: https://www.cda-amc.ca/literature-searching-tools/covid-19-search-strings
+- Carrie Price MLS: https://carrieprice78.github.io/guides/search-filters/coronavirus/
 
 ## Search strings
 
@@ -31,8 +32,11 @@ As we are restricting the search to 2020 onwards, we can potentially simplify th
 
 ```py
 TS=(
-"coronavirus" OR "covid"
-OR "COVID19*" OR "COVID2019" OR "COVID-19*" OR "COVID-2019*" OR "2019-nCoV" OR "SARS-CoV-2019" OR "SARS-CoV-2" OR "SARS-COV2" OR "SARSCOV-2" OR "SARSCOV2" OR "SARS-CoV-19" OR "NCOV"
+"coronavirus*" OR "corona virus*" OR "covid"
+OR "COVID19*" OR "COVID2019" OR "COVID-19*" OR "COVID-2019*" 
+OR "SARS-CoV-2019" OR "SARS-CoV-19"
+OR "SARS-CoV-2" OR "SARS-COV2" OR "SARSCOV-2" OR "SARSCOV2" OR "SARSCoV"
+OR "NCOV" OR "2019-nCoV" OR "2019nCoV" OR "SARS-nCoV" OR "SARSnCoV"
 OR "pandemic*"
 )
 ```
