@@ -8,7 +8,7 @@ Bestilling: Pandemic Centre at UiB
 
 ## Scope
 
-Everything that mentions the covid-19 or the covid-19 pandemic in any capacity/context or discipline, from Norwegian institutions. Should find results both in English and Norwegian, and of diverse publication types (articles, books, chapters, reports, dissertations; but not media outputs or datasets).
+Everything that mentions the covid-19 or the covid-19 pandemic in any context or discipline, from Norwegian institutions. Should find results both in English and Norwegian, and of diverse publication types (articles, books, chapters, reports, dissertations; but not media outputs or datasets).
 
 Timespan: Publication date = 2020-01-01 to 2024 as much as possible
 
@@ -34,11 +34,12 @@ Databases
 - WOS.ESCI: 2019 to 2024
 - WOS.SSCI: 1956 to 2024
 
-#1
+#### 1
 
 ```py
 TS=(
 "coronavirus*" OR "corona virus*" OR "covid"
+OR "corona infection" OR "corona vaccin*" 
 OR "COVID19*" OR "COVID2019" OR "COVID-19*" OR "COVID-2019*" 
 OR "SARS-CoV-2019" OR "SARS-CoV-19"
 OR "SARS-CoV-2" OR "SARS-COV2" OR "SARSCOV-2" OR "SARSCOV2" OR "SARSCoV"
@@ -47,10 +48,9 @@ OR "pandemic*"
 )
 ```
 
-#2
+- I tested using variations of e.g. "omicron", "delta variant" etc. but this lead to irrelevant results. One relevant result used "omicron" but many more were irrelevant. "omicron" is thus only included in the Cristin search. 
 
-- Originally this search contained a line for PPE - but many other fields use these terms (e.g. firefighters, construction workers), and the abbreviation is used for many other things. In practice, this part of the search only adds two additional results for Norway in the target years, and these are not specifically about the pandemic, therefore it is dropped. Original search tested: `(("personal protective equipment") NOT ("construction" OR "firefight*" OR "kiln" OR "cement" OR "police" OR "recycl*" OR "radiation" OR "ship*" OR "oil" OR "H2S" OR "mining" OR "miner*" OR "mercury" OR "heavy metal*" OR "soot" OR "agricult*" OR "farm*" OR "pesticide*" OR "cold"))`
-- Face mask results are not always about the pandemic but do mostly seem to be about medical face masks. I have tried to exclude results about neonatal ventilation/resuscitation, which also use face masks.
+#### 2
 
 ```py
 TS=(
@@ -63,26 +63,29 @@ OR 	(("respiratory" OR "facial" OR "N99" OR "N95" OR "N 99" OR "N 95")
 NOT TS=("neonatal" OR "newborn" OR "resuscitation")
 ```
 
-#3
+- Originally this search contained a line for PPE - but many other fields use these terms (e.g. firefighters, construction workers), and the abbreviation is used for many other things. In practice, this part of the search only adds two additional results for Norway in the target years, and these are not specifically about the pandemic, therefore it is dropped. Original search tested: `(("personal protective equipment") NOT ("construction" OR "firefight*" OR "kiln" OR "cement" OR "police" OR "recycl*" OR "radiation" OR "ship*" OR "oil" OR "H2S" OR "mining" OR "miner*" OR "mercury" OR "heavy metal*" OR "soot" OR "agricult*" OR "farm*" OR "pesticide*" OR "cold"))`
+- Face mask results are not always about the pandemic but do mostly seem to be about medical face masks. I have tried to exclude results about neonatal ventilation/resuscitation, which also use face masks.
 
-- Here I tried with "social distanc*" but "social distance" seems to be mostly about non-pandemic topics, which "distancing" is much more focused.
-- The Cristin string (below) includes elements
-- I also tried with `TS=("work from home" OR "working from home" OR "home office" OR "school closure$")`, which could potentially be noisy, but in Norway and the year restrictions it gave no extra results to phrase #1 anyway. 
+#### 3
 
 ```py
 TS=("lockdown*" OR "social distancing" OR "physical distancing")
 ```
 
-#4
+- Here I tried with "social distanc*" but "social distance" seems to be mostly about non-pandemic topics, which "distancing" is much more focused.
+- The Cristin string (below) includes elements
+- I also tried with `TS=("work from home" OR "working from home" OR "home office" OR "school closure$")`, which could potentially be noisy, but in Norway and the year restrictions it gave no extra results to phrase #1 anyway. 
 
-Note, year published ("PY") includes both the "Published early access year" and the "Final publication year". From Clarivate's Web of Science help:
-> "For example, searching Year Published = 2022, will return items with Final Publication Year of 2022 and any items with Published Early Access Year of 2022. This will also impact the years displayed for Refine an Analyze Results. In the case where an item's Published Early Access Year is different from the Final Publication Year, the Published Early Access year will be used for both Refine and Analyze. Thus, a search of Year Published=2021 may show a Refine Results for Publication year with items listed for 2019, 2020 and 2021."
+#### 4
 
 ```py
 (#1 OR #2 OR #3)
 AND CU="Norway"
 AND PY=2020-2024
 ```
+
+Note, year published ("PY") includes both the "Published early access year" and the "Final publication year". From Clarivate's Web of Science help:
+> "For example, searching Year Published = 2022, will return items with Final Publication Year of 2022 and any items with Published Early Access Year of 2022. This will also impact the years displayed for Refine an Analyze Results. In the case where an item's Published Early Access Year is different from the Final Publication Year, the Published Early Access year will be used for both Refine and Analyze. Thus, a search of Year Published=2021 may show a Refine Results for Publication year with items listed for 2019, 2020 and 2021."
 
 ### Search string, Cristin
 
