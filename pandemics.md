@@ -22,11 +22,11 @@ The following strings were used for inspiration, to find terminology, and in som
 
 ## Search strings
 
-Two search strings are included: one for Web of Science (Clarivate) (English only; Topic (title, abstract, keywords, keywordsplus) and one for running against Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian; title search only).
-
 As we are restricting the search to 2020 onwards, we can potentially simplify the search for coronavirus terms (i.e. go broader, not specify which coronavirus). 
 
 ### Search string, Web of Science
+
+Web of Science (Clarivate) (English only; Topic (title, abstract, keywords, keywordsplus) 
 
 Databases
 - WOS.SCI: 1945 to 2024
@@ -95,9 +95,21 @@ AND PY=2020-2024
 Note, year published ("PY") includes both the "Published early access year" and the "Final publication year". From Clarivate's Web of Science help:
 > "For example, searching Year Published = 2022, will return items with Final Publication Year of 2022 and any items with Published Early Access Year of 2022. This will also impact the years displayed for Refine an Analyze Results. In the case where an item's Published Early Access Year is different from the Final Publication Year, the Published Early Access year will be used for both Refine and Analyze. Thus, a search of Year Published=2021 may show a Refine Results for Publication year with items listed for 2019, 2020 and 2021."
 
+### Search PubMed
+
+Here we do a simple search using the general covid-19 filter pre-defined by PubMed (all covid terms in the search below are automatically added through this). Note that the Affiliation field in PubMed does not always work well, depending on what the journal supplies. In previous work I have seen that country affiliation is missing for Tidsskrift for den norske legeforening - therefore this journal is included as a search term, as it is central in Norway.
+
+```py
+(
+	("Norway"[Affiliation] OR "tidsskrift for den norske laegeforening tidsskrift for praktisk medicin ny raekke"[Journal])
+	AND ("covid 19"[All Fields] OR "covid19"[All Fields] OR "covid 19"[MeSH Terms] OR "covid 19 vaccines"[All Fields] OR "covid 19 vaccines"[MeSH Terms] OR "covid 19 serotherapy"[All Fields] OR "covid 19 serotherapy"[MeSH Terms] OR "covid 19 nucleic acid testing"[All Fields] OR "covid 19 nucleic acid testing"[MeSH Terms] OR "covid 19 serological testing"[All Fields] OR "covid 19 serological testing"[MeSH Terms] OR "covid 19 testing"[All Fields] OR "covid 19 testing"[MeSH Terms] OR "sars cov 2"[All Fields] OR "sarscov2"[All Fields] OR "sarscov 2"[All Fields] OR "sars cov2"[All Fields] OR "sars cov 2"[MeSH Terms] OR "severe acute respiratory syndrome coronavirus 2"[All Fields] OR "2019 ncov"[All Fields] OR (("coronavirus"[MeSH Terms] OR "coronavirus"[All Fields] OR "cov"[All Fields] OR "ncov"[All Fields]) AND 2019/11/01:3000/12/31[Date - Publication]))
+)
+AND (2020:2024[pdat]) 
+```
+
 ### Search string, Cristin
 
-Title search only.
+Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian; title search only)
 
 - "Corona" is limited to avoid "coronary". While "PPE"/"personal protective equipment" are in theory good terms, they do not add any additional relevant results when searching Cristin and are therefore dropped.
 - Use of mask types only adds noise, so is dropped
