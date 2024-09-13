@@ -111,8 +111,8 @@ AND (2020:2024[pdat])
 
 Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian; title search only)
 
-- "Corona" is limited to avoid "coronary". While "PPE"/"personal protective equipment" are in theory good terms, they do not add any additional relevant results when searching Cristin and are therefore dropped.
-- Use of mask types only adds noise, so is dropped
+- "Corona" is limited to avoid "coronary".
+- "PPE"/"personal protective equipment" do not add any additional relevant results when searching Cristin and are therefore dropped (`OR CONTAINS(LOWER([result_title]),"personal protective equipment") OR REGEXP_MATCH(([result_title]), "\bPPE\b")`. The same applies to mask types (e.g. N95) which only added noise.
 - "omicron" is added as a variant, but not others (e.g. alpha, delta). This is because alpha, beta, delta are common terms in other non-covid related fields, plus that they do not give any additional results.
 
 ```py
@@ -136,8 +136,6 @@ OR CONTAINS(LOWER([result_title]), "omikron"	)
 OR CONTAINS(LOWER([result_title]),	"face mask"	)
 OR CONTAINS(LOWER([result_title]),	"facemask"	)
 OR CONTAINS(LOWER([result_title]),	"ansiktsmask"	)
-//OR CONTAINS(LOWER([result_title]),	"personal protective equipment"	)
-//OR REGEXP_MATCH(([result_title]), "\bPPE\b")
 
 OR CONTAINS(LOWER([result_title]),	"quarantine"	)
 OR CONTAINS(LOWER([result_title]),	"karantene"	)
@@ -172,8 +170,6 @@ OR REGEXP_MATCH(([result_title_anthology]), "\bCOV2\b")
 OR CONTAINS(LOWER([result_title_anthology]),	"face mask"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"facemask"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"ansiktsmask"	)
-//OR CONTAINS(LOWER([result_title_anthology]),	"personal protective equipment"	)
-//OR REGEXP_MATCH(([result_title_anthology]), "\bPPE\b")
 
 OR CONTAINS(LOWER([result_title_anthology]),	"quarantine"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"karantene"	)
