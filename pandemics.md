@@ -28,6 +28,12 @@ As we are restricting the search to 2020 onwards, we can potentially simplify th
 
 ### Search string, Web of Science
 
+Databases
+- WOS.SCI: 1945 to 2024
+- WOS.AHCI: 1975 to 2024
+- WOS.ESCI: 2019 to 2024
+- WOS.SSCI: 1956 to 2024
+
 #1
 
 ```py
@@ -59,15 +65,23 @@ NOT TS=("neonatal" OR "newborn" OR "resuscitation")
 
 #3
 
-Here I tried with "social distanc*" but "social distance" seems to be mostly about non-pandemic topics, which "distancing" is much more focused. 
+- Here I tried with "social distanc*" but "social distance" seems to be mostly about non-pandemic topics, which "distancing" is much more focused.
+- The Cristin string (below) includes elements
+- I also tried with `TS=("work from home" OR "working from home" OR "home office" OR "school closure$")`, which could potentially be noisy, but in Norway and the year restrictions it gave no extra results to phrase #1 anyway. 
 
 ```py
 TS=("lockdown*" OR "social distancing" OR "physical distancing")
 ```
 
 #4
+
+Note, year published ("PY") includes both the "Published early access year" and the "Final publication year". From Clarivate's Web of Science help:
+> "For example, searching Year Published = 2022, will return items with Final Publication Year of 2022 and any items with Published Early Access Year of 2022. This will also impact the years displayed for Refine an Analyze Results. In the case where an item's Published Early Access Year is different from the Final Publication Year, the Published Early Access year will be used for both Refine and Analyze. Thus, a search of Year Published=2021 may show a Refine Results for Publication year with items listed for 2019, 2020 and 2021."
+
 ```py
-#1 OR #2 OR #3
+(#1 OR #2 OR #3)
+AND CU="Norway"
+AND PY=2020-2024
 ```
 
 ### Search string, Cristin
