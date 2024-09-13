@@ -92,6 +92,8 @@ OR REGEXP_MATCH(([result_title]), "\bCoV\b")
 OR REGEXP_MATCH(([result_title]), "\bCoV2\b")
 OR REGEXP_MATCH(([result_title]), "\bCOV\b")
 OR REGEXP_MATCH(([result_title]), "\bCOV2\b")
+OR CONTAINS(LOWER([result_title]), "omicron"	)
+OR CONTAINS(LOWER([result_title]), "omikron"	)
 
 OR CONTAINS(LOWER([result_title]),	"face mask"	)
 OR CONTAINS(LOWER([result_title]),	"facemask"	)
