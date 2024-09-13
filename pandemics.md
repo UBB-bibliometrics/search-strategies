@@ -48,7 +48,7 @@ OR "pandemic*"
 )
 ```
 
-- I tested using variations of e.g. "omicron", "delta variant" etc. but this lead to irrelevant results. One relevant result used "omicron" but many more were irrelevant. "omicron" is thus only included in the Cristin search. 
+- I tested using variations of e.g. "omicron", "delta variant" etc. but this lead to irrelevant results. Two relevant results used "omicron" but many more were irrelevant (and these two are added by the Web of Science Citation cateogy in search #4). "omicron" is thus only included in the Cristin search. 
 
 #### 2
 
@@ -79,7 +79,15 @@ TS=("lockdown*" OR "social distancing" OR "physical distancing")
 #### 4
 
 ```py
-(#1 OR #2 OR #3)
+TMIC=("1.104.1353 Coronavirus")
+```
+
+- TMIC = Micro Level Citation Topic. https://incites.help.clarivate.com/Content/Research-Areas/citation-topics.htm
+  
+#### 5
+
+```py
+(#1 OR #2 OR #3 OR #4)
 AND CU="Norway"
 AND PY=2020-2024
 ```
