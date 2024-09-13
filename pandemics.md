@@ -76,6 +76,7 @@ Title search only.
 
 - "Corona" is limited to avoid "coronary". While "PPE"/"personal protective equipment" are in theory good terms, they do not add any additional relevant results when searching Cristin and are therefore dropped.
 - Use of mask types only adds noise, so is dropped
+- "omicron" is added as a variant, but not others (e.g. alpha, delta). This is because alpha, beta, delta are common terms in other non-covid related fields, plus that they do not give any additional results.
 
 ```py
 IF 
