@@ -102,7 +102,31 @@ OR CONTAINS(LOWER([result_title]),	"nedstenging"	)
 OR CONTAINS(LOWER([result_title]),	"skolestenging"	)
 OR CONTAINS(LOWER([result_title]),	"en-metersregel"	)
 OR CONTAINS(LOWER([result_title]),	"en metersregel"	)
-
 THEN "pandemic"
+
+ELSEIF 
+CONTAINS(LOWER([result_title_anthology]),	"pandemi"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"covid"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"corona"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"korona"	)
+OR REGEXP_MATCH(([result_title_anthology]), "\bSARS")
+OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bncov")
+
+OR CONTAINS(LOWER([result_title_anthology]),	"face mask"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"facemask"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"ansiktsmask"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"personal protective equipment"	)
+OR REGEXP_MATCH(([result_title_anthology]), "\bPPE\b")
+
+OR CONTAINS(LOWER([result_title_anthology]),	"quarantine"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"karantene"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"lock-down"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"lockdown"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"nedstenging"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"skolestenging"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"en-metersregel"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"en metersregel"	)
+THEN "pandemic"
+
 END
 ```
