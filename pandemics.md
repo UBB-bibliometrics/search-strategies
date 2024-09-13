@@ -106,9 +106,14 @@ OR CONTAINS(LOWER([result_title]),	"karantene"	)
 OR CONTAINS(LOWER([result_title]),	"lock-down"	)
 OR CONTAINS(LOWER([result_title]),	"lockdown"	)
 OR CONTAINS(LOWER([result_title]),	"nedstenging"	)
-OR CONTAINS(LOWER([result_title]),	"skolestenging"	)
 OR CONTAINS(LOWER([result_title]),	"en-metersregel"	)
 OR CONTAINS(LOWER([result_title]),	"en metersregel"	)
+OR CONTAINS(LOWER([result_title]),	"home office"	)
+OR CONTAINS(LOWER([result_title]),	"working from home"	)
+OR CONTAINS(LOWER([result_title]),	"work from home"	)
+OR CONTAINS(LOWER([result_title]),	"hjemmekontor"	)
+OR CONTAINS(LOWER([result_title]),	"hjemmeskole"	)
+OR CONTAINS(LOWER([result_title]),	"skolestenging"	)
 THEN "pandemic"
 
 ELSEIF 
@@ -137,9 +142,14 @@ OR CONTAINS(LOWER([result_title_anthology]),	"karantene"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"lock-down"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"lockdown"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"nedstenging"	)
-OR CONTAINS(LOWER([result_title_anthology]),	"skolestenging"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"en-metersregel"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"en metersregel"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"home office"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"working from home"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"work from home"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"hjemmekontor"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"hjemmeskole"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"skolestenging"	)
 THEN "pandemic"
 
 END
