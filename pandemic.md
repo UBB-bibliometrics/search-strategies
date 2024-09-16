@@ -8,7 +8,7 @@ Bestilling: Pandemic Centre at UiB
 
 ## Scope
 
-Everything that mentions the covid-19 or the covid-19 pandemic in any context or discipline, from Norwegian institutions. Should find results both in English and Norwegian, and of diverse publication types (articles, books, chapters, reports, dissertations; but not media outputs or datasets).
+Everything that mentions covid-19, the covid-19 pandemic or pandemics in any context or discipline, from Norwegian institutions from 2020 onwards. Should find results both in English and Norwegian, and of diverse publication types (articles, books, chapters, reports, dissertations; but not media outputs or datasets).
 
 Certain concepts connected to the pandemic were tested but taken out when they proved too noisy for this particular use case (unless combined with other pandemic terms). Note that research on these topics is not excluded, but will not be found unless also referencing some of the other search terms (e.g. covid-19 or the pandemic). These included:
 - Epidemics
