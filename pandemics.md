@@ -10,6 +10,11 @@ Bestilling: Pandemic Centre at UiB
 
 Everything that mentions the covid-19 or the covid-19 pandemic in any context or discipline, from Norwegian institutions. Should find results both in English and Norwegian, and of diverse publication types (articles, books, chapters, reports, dissertations; but not media outputs or datasets).
 
+Certain concepts connected to the pandemic were tested but taken out when they proved too noisy for this particular use case (unless combined with other pandemic terms). Note that research on these topics is not excluded, but will not be found unless also referencing some of the other search terms (e.g. covid-19 or the pandemic). These included:
+- Epidemics
+- Working from home
+- Personal protective equipment
+
 Timespan: Publication date = 2020-01-01 to 2024 as much as possible
 
 ## Other strings used/copied
@@ -22,7 +27,7 @@ The following strings were used for inspiration, to find terminology, and in som
 
 ## Search strings
 
-As we are restricting the search to 2020 onwards, we can potentially simplify the search for coronavirus terms (i.e. go broader, not specify which coronavirus). 
+As we are restricting the search to 2020 onwards, we can simplify the search for coronavirus terms (i.e. go broader by not specifying which coronavirus). 
 
 ### Search string, Web of Science
 
@@ -48,7 +53,7 @@ OR "pandemic*"
 )
 ```
 
-- I tested using variations of e.g. "omicron", "delta variant" etc. but this lead to irrelevant results. Two relevant results used "omicron" but many more were irrelevant (and these two are added by the Web of Science Citation cateogy in search #4). "omicron" is thus only included in the Cristin search. 
+- I tested using variations of e.g. "omicron", "delta variant" etc. but this lead to irrelevant results. Two relevant results used "omicron" but many more were irrelevant (and these two are added by the Web of Science Citation cateogy in search #4). "omicron" is thus only included in the Cristin title search. 
 
 #### 2
 
@@ -72,9 +77,8 @@ NOT TS=("neonatal" OR "newborn" OR "resuscitation")
 TS=("lockdown*" OR "social distancing" OR "physical distancing")
 ```
 
-- Here I tried with "social distanc*" but "social distance" seems to be mostly about non-pandemic topics, which "distancing" is much more focused.
-- The Cristin string (below) includes elements
-- I also tried with `TS=("work from home" OR "working from home" OR "home office" OR "school closure$")`, which could potentially be noisy, but in Norway and the year restrictions it gave no extra results to phrase #1 anyway. 
+- Here I tried with "social distanc*" but "social distance" seems to be mostly about non-pandemic topics, while "distancing" is much more focused.
+- I also tried with `TS=("work from home" OR "working from home" OR "home office" OR "school closure$")`, but in Norway and the year restrictions it gave no extra results to phrase #1 anyway. In general testing it can add some results about the pandemic, but many more generally about working from home, and we decided that this was too far outside the scope for this use-case.
 
 #### 4
 
@@ -97,7 +101,7 @@ Note, year published ("PY") includes both the "Published early access year" and 
 
 ### Search PubMed
 
-Here we do a simple search using the general covid-19 filter pre-defined by PubMed (all covid terms in the search below are automatically added through this). Note that the Affiliation field in PubMed does not always work well, depending on what the journal supplies. In previous work I have seen that country affiliation is missing for Tidsskrift for den norske legeforening - therefore this journal is included as a search term, as it is central in Norway.
+MeSH and all fields term search (English only). Here we do a search using the general covid-19 filter as pre-defined by PubMed (all covid terms in the search below are automatically added through this, https://pubmed.ncbi.nlm.nih.gov/help/#covid19-article-filters). Note that the Affiliation field in PubMed does not always work well, depending on what metadata the journal supplies. In previous work I have seen that country affiliation is missing for Tidsskrift for den norske legeforening - therefore this journal is included as a search term, as it is central in Norway.
 
 ```py
 (
@@ -111,9 +115,10 @@ AND (2020:2024[pdat])
 
 Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian; title search only)
 
-- "Corona" is limited to avoid "coronary".
-- "PPE"/"personal protective equipment" do not add any additional relevant results when searching Cristin and are therefore dropped (`OR CONTAINS(LOWER([result_title]),"personal protective equipment") OR REGEXP_MATCH(([result_title]), "\bPPE\b")`. The same applies to mask types (e.g. N95) which only added noise.
-- "omicron" is added as a variant, but not others (e.g. alpha, delta). This is because alpha, beta, delta are common terms in other non-covid related fields, plus that they do not give any additional results.
+- Truncation of "corona" is limited to avoid "coronary".
+- "PPE"/"personal protective equipment" do not add any additional relevant results when searching Cristin and are therefore dropped (`OR CONTAINS(LOWER([result_title]),"personal protective equipment") OR REGEXP_MATCH(([result_title]), "\bPPE\b")`. The same applies to mask types (e.g. N95) which only added irrelevant works.
+- "omicron" is added as a variant, but not others (e.g. alpha, delta). This is because alpha, beta, delta are common terms in other non-covid related fields, plus they do not give any additional results in this particular case.
+- Originally terms about home office in general were included, but now has been removed as too far outside the scope (`"home office", "working from home", "work from home", "hjemmekontor"`).
 
 ```py
 IF 
@@ -144,10 +149,6 @@ OR CONTAINS(LOWER([result_title]),	"lockdown"	)
 OR CONTAINS(LOWER([result_title]),	"nedstenging"	)
 OR CONTAINS(LOWER([result_title]),	"en-metersregel"	)
 OR CONTAINS(LOWER([result_title]),	"en metersregel"	)
-OR CONTAINS(LOWER([result_title]),	"home office"	)
-OR CONTAINS(LOWER([result_title]),	"working from home"	)
-OR CONTAINS(LOWER([result_title]),	"work from home"	)
-OR CONTAINS(LOWER([result_title]),	"hjemmekontor"	)
 OR CONTAINS(LOWER([result_title]),	"hjemmeskole"	)
 OR CONTAINS(LOWER([result_title]),	"skolestenging"	)
 THEN "pandemic"
@@ -178,10 +179,6 @@ OR CONTAINS(LOWER([result_title_anthology]),	"lockdown"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"nedstenging"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"en-metersregel"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"en metersregel"	)
-OR CONTAINS(LOWER([result_title_anthology]),	"home office"	)
-OR CONTAINS(LOWER([result_title_anthology]),	"working from home"	)
-OR CONTAINS(LOWER([result_title_anthology]),	"work from home"	)
-OR CONTAINS(LOWER([result_title_anthology]),	"hjemmekontor"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"hjemmeskole"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"skolestenging"	)
 THEN "pandemic"
