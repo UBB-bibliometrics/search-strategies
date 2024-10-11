@@ -115,7 +115,7 @@ AND (2020:2024[pdat])
 
 Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian; title search only)
 
-- Truncation of "corona" is limited to avoid "coronary".
+- Truncation of "corona" or "korona" is limited to avoid "coronary" (and the same in Norwegian).
 - "PPE"/"personal protective equipment" do not add any additional relevant results when searching Cristin and are therefore dropped (`OR CONTAINS(LOWER([result_title]),"personal protective equipment") OR REGEXP_MATCH(([result_title]), "\bPPE\b")`. The same applies to mask types (e.g. N95) which only added irrelevant works.
 - "omicron" is added as a variant, but not others (e.g. alpha, delta). This is because alpha, beta, delta are common terms in other non-covid related fields, plus they do not give any additional results in this particular case.
 - Originally terms about home office in general were included, but now has been removed as too far outside the scope (`"home office", "working from home", "work from home", "hjemmekontor"`).
@@ -126,7 +126,8 @@ CONTAINS(LOWER([result_title]),	"pandemi"	)
 OR CONTAINS(LOWER([result_title]),	"covid"	)
 OR CONTAINS(LOWER([result_title]),	"coronavirus"	)
 OR REGEXP_MATCH(LOWER([result_title]), "\bcorona\b")
-OR CONTAINS(LOWER([result_title]),	"korona"	)
+OR REGEXP_MATCH(LOWER([result_title]), "korona\b")
+OR CONTAINS(LOWER([dc.result_title]),	"koronavirus"	)
 OR REGEXP_MATCH(([result_title]), "\bSARS")
 OR REGEXP_MATCH(LOWER([result_title]), "\bncov")
 OR REGEXP_MATCH(LOWER([result_title]), "\bsars-cov")
@@ -158,7 +159,8 @@ CONTAINS(LOWER([result_title_anthology]),	"pandemi"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"covid"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"coronavirus"	)
 OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bcorona\b")
-OR CONTAINS(LOWER([result_title_anthology]),	"korona"	)
+OR REGEXP_MATCH(LOWER([result_title_anthology]), "korona\b")
+OR CONTAINS(LOWER([dc.result_title_anthology]),	"koronavirus"	)
 OR REGEXP_MATCH(([result_title_anthology]), "\bSARS")
 OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bsars-cov")
 OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bsarscov")
@@ -185,3 +187,110 @@ THEN "pandemic"
 
 END
 ```
+
+### Search string, BORA (Bergen Open Research Archive)
+
+This search is for looking within the archive for master theses and PhD dissertations. It is based on the Cristin search over. 
+
+```
+IF 
+CONTAINS(LOWER([name]),	"pandemi"	)
+OR CONTAINS(LOWER([name]),	"covid"	)
+OR CONTAINS(LOWER([name]),	"coronavirus"	)
+OR REGEXP_MATCH(LOWER([name]), "\bcorona\b")
+OR REGEXP_MATCH(LOWER([name]), "korona\b")
+OR CONTAINS(LOWER([name]),	"koronavirus"	)
+OR REGEXP_MATCH(([name]), "\bSARS")
+OR REGEXP_MATCH(LOWER([name]), "\bncov")
+OR REGEXP_MATCH(LOWER([name]), "\bsars-cov")
+OR REGEXP_MATCH(LOWER([name]), "\bsarscov")
+OR REGEXP_MATCH(([name]), "\bCoV\b")
+OR REGEXP_MATCH(([name]), "\bCoV2\b")
+OR REGEXP_MATCH(([name]), "\bCOV\b")
+OR REGEXP_MATCH(([name]), "\bCOV2\b")
+OR CONTAINS(LOWER([name]), "omicron"	)
+OR CONTAINS(LOWER([name]), "omikron"	)
+
+OR CONTAINS(LOWER([name]),	"face mask"	)
+OR CONTAINS(LOWER([name]),	"facemask"	)
+OR CONTAINS(LOWER([name]),	"ansiktsmask"	)
+
+OR CONTAINS(LOWER([name]),	"quarantine"	)
+OR CONTAINS(LOWER([name]),	"karantene"	)
+OR CONTAINS(LOWER([name]),	"lock-down"	)
+OR CONTAINS(LOWER([name]),	"lockdown"	)
+OR CONTAINS(LOWER([name]),	"nedstenging"	)
+OR CONTAINS(LOWER([name]),	"en-metersregel"	)
+OR CONTAINS(LOWER([name]),	"en metersregel"	)
+OR CONTAINS(LOWER([name]),	"hjemmeskole"	)
+OR CONTAINS(LOWER([name]),	"skolestenging"	)
+THEN "pandemic"
+
+ELSEIF
+CONTAINS(LOWER([dc.description.abstract]),	"pandemi"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"covid"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"coronavirus"	)
+OR REGEXP_MATCH(LOWER([dc.description.abstract]), "\bcorona\b")
+OR REGEXP_MATCH(LOWER([dc.description.abstract]), "korona\b")
+OR CONTAINS(LOWER([dc.description.abstract]),	"koronavirus"	)
+OR REGEXP_MATCH(([dc.description.abstract]), "\bSARS")
+OR REGEXP_MATCH(LOWER([dc.description.abstract]), "\bncov")
+OR REGEXP_MATCH(LOWER([dc.description.abstract]), "\bsars-cov")
+OR REGEXP_MATCH(LOWER([dc.description.abstract]), "\bsarscov")
+OR REGEXP_MATCH(([dc.description.abstract]), "\bCoV\b")
+OR REGEXP_MATCH(([dc.description.abstract]), "\bCoV2\b")
+OR REGEXP_MATCH(([dc.description.abstract]), "\bCOV\b")
+OR REGEXP_MATCH(([dc.description.abstract]), "\bCOV2\b")
+OR CONTAINS(LOWER([dc.description.abstract]), "omicron"	)
+OR CONTAINS(LOWER([dc.description.abstract]), "omikron"	)
+
+OR CONTAINS(LOWER([dc.description.abstract]),	"face mask"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"facemask"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"ansiktsmask"	)
+
+OR CONTAINS(LOWER([dc.description.abstract]),	"quarantine"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"karantene"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"lock-down"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"lockdown"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"nedstenging"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"en-metersregel"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"en metersregel"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"hjemmeskole"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"skolestenging"	)
+THEN "pandemic"
+
+ELSEIF
+CONTAINS(LOWER([dc.subject]),	"pandemi"	)
+OR CONTAINS(LOWER([dc.subject]),	"covid"	)
+OR CONTAINS(LOWER([dc.subject]),	"coronavirus"	)
+OR REGEXP_MATCH(LOWER([dc.subject]), "\bcorona\b")
+OR REGEXP_MATCH(LOWER([dc.subject]), "korona\b")
+OR CONTAINS(LOWER([dc.subject]),	"koronavirus"	)
+OR REGEXP_MATCH(([dc.subject]), "\bSARS")
+OR REGEXP_MATCH(LOWER([dc.subject]), "\bncov")
+OR REGEXP_MATCH(LOWER([dc.subject]), "\bsars-cov")
+OR REGEXP_MATCH(LOWER([dc.subject]), "\bsarscov")
+OR REGEXP_MATCH(([dc.subject]), "\bCoV\b")
+OR REGEXP_MATCH(([dc.subject]), "\bCoV2\b")
+OR REGEXP_MATCH(([dc.subject]), "\bCOV\b")
+OR REGEXP_MATCH(([dc.subject]), "\bCOV2\b")
+OR CONTAINS(LOWER([dc.subject]), "omicron"	)
+OR CONTAINS(LOWER([dc.subject]), "omikron"	)
+
+OR CONTAINS(LOWER([dc.subject]),	"face mask"	)
+OR CONTAINS(LOWER([dc.subject]),	"facemask"	)
+OR CONTAINS(LOWER([dc.subject]),	"ansiktsmask"	)
+
+OR CONTAINS(LOWER([dc.subject]),	"quarantine"	)
+OR CONTAINS(LOWER([dc.subject]),	"karantene"	)
+OR CONTAINS(LOWER([dc.subject]),	"lock-down"	)
+OR CONTAINS(LOWER([dc.subject]),	"lockdown"	)
+OR CONTAINS(LOWER([dc.subject]),	"nedstenging"	)
+OR CONTAINS(LOWER([dc.subject]),	"en-metersregel"	)
+OR CONTAINS(LOWER([dc.subject]),	"en metersregel"	)
+OR CONTAINS(LOWER([dc.subject]),	"hjemmeskole"	)
+OR CONTAINS(LOWER([dc.subject]),	"skolestenging"	)
+THEN "pandemic"
+
+END
+``
