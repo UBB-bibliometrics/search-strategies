@@ -94,6 +94,8 @@ AND CU="Norway"
 AND PY=2020-2024
 ```
 
+https://www.webofscience.com/wos/woscc/summary/c36fc976-aa14-4e0f-8e9a-3e399997473a-011199caf1/relevance/1
+
 Note, year published ("PY") includes both the "Published early access year" and the "Final publication year". From Clarivate's Web of Science help:
 > "For example, searching Year Published = 2022, will return items with Final Publication Year of 2022 and any items with Published Early Access Year of 2022. This will also impact the years displayed for Refine an Analyze Results. In the case where an item's Published Early Access Year is different from the Final Publication Year, the Published Early Access year will be used for both Refine and Analyze. Thus, a search of Year Published=2021 may show a Refine Results for Publication year with items listed for 2019, 2020 and 2021."
 
