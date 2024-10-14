@@ -4,8 +4,6 @@ Authors: Caroline S. Armitage, University of Bergen
 
 Bestilling: Pandemic Centre at UiB
 
-**WORK IN PROGRESS 12/09/24**
-
 ## Scope
 
 Everything that mentions covid-19, the covid-19 pandemic or pandemics in any context or discipline, from Norwegian institutions from 2020 onwards. Should find results both in English and Norwegian, and of diverse publication types (articles, books, chapters, reports, dissertations; but not media outputs or datasets).
