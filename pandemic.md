@@ -190,7 +190,7 @@ END
 
 ### Search string, BORA (Bergen Open Research Archive)
 
-This search is for looking within the archive for master theses and PhD dissertations. It is based on the Cristin search over. 
+This search is for looking within the archive for master theses and PhD dissertations. It is based on the Cristin search over. The translation of "ansiktsmask" (face mask) was tested, but only added irrelevant results about face masks for neonatal resuscitation (as in Web of Science) and was thus removed. 
 
 ```
 IF 
@@ -211,8 +211,6 @@ OR REGEXP_MATCH(([name]), "\bCOV2\b")
 OR CONTAINS(LOWER([name]), "omicron"	)
 OR CONTAINS(LOWER([name]), "omikron"	)
 
-OR CONTAINS(LOWER([name]),	"face mask"	)
-OR CONTAINS(LOWER([name]),	"facemask"	)
 OR CONTAINS(LOWER([name]),	"ansiktsmask"	)
 
 OR CONTAINS(LOWER([name]),	"quarantine"	)
@@ -244,8 +242,6 @@ OR REGEXP_MATCH(([dc.description.abstract]), "\bCOV2\b")
 OR CONTAINS(LOWER([dc.description.abstract]), "omicron"	)
 OR CONTAINS(LOWER([dc.description.abstract]), "omikron"	)
 
-OR CONTAINS(LOWER([dc.description.abstract]),	"face mask"	)
-OR CONTAINS(LOWER([dc.description.abstract]),	"facemask"	)
 OR CONTAINS(LOWER([dc.description.abstract]),	"ansiktsmask"	)
 
 OR CONTAINS(LOWER([dc.description.abstract]),	"quarantine"	)
@@ -277,8 +273,6 @@ OR REGEXP_MATCH(([dc.subject]), "\bCOV2\b")
 OR CONTAINS(LOWER([dc.subject]), "omicron"	)
 OR CONTAINS(LOWER([dc.subject]), "omikron"	)
 
-OR CONTAINS(LOWER([dc.subject]),	"face mask"	)
-OR CONTAINS(LOWER([dc.subject]),	"facemask"	)
 OR CONTAINS(LOWER([dc.subject]),	"ansiktsmask"	)
 
 OR CONTAINS(LOWER([dc.subject]),	"quarantine"	)
