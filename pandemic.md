@@ -115,7 +115,8 @@ AND (2020:2024[pdat])
 
 Norway's national CRIS system (Cristin) via Tableau DUCT (from Sikt) (English and Norwegian; title search only)
 
-- Truncation of "corona" or "korona" is limited to avoid "coronary" (and the same in Norwegian).
+- Truncation of "corona" is limited to avoid "coronary". The same issue occurs in Norwegian with "korona", but is a rare issue in publication titles, and we miss many more relevant results by limiting it (e.g. koronatiltak, koronatid, koronakrise...).
+- "face mask" was tested, but only added irrelevant results about face masks for neonatal resuscitation for theses, and added only 3 relevant results for articles (and more irrelevant). Therefore it was removed. 
 - "PPE"/"personal protective equipment" do not add any additional relevant results when searching Cristin and are therefore dropped (`OR CONTAINS(LOWER([result_title]),"personal protective equipment") OR REGEXP_MATCH(([result_title]), "\bPPE\b")`. The same applies to mask types (e.g. N95) which only added irrelevant works.
 - "omicron" is added as a variant, but not others (e.g. alpha, delta). This is because alpha, beta, delta are common terms in other non-covid related fields, plus they do not give any additional results in this particular case.
 - Originally terms about home office in general were included, but now has been removed as too far outside the scope (`"home office", "working from home", "work from home", "hjemmekontor"`).
@@ -126,8 +127,7 @@ CONTAINS(LOWER([result_title]),	"pandemi"	)
 OR CONTAINS(LOWER([result_title]),	"covid"	)
 OR CONTAINS(LOWER([result_title]),	"coronavirus"	)
 OR REGEXP_MATCH(LOWER([result_title]), "\bcorona\b")
-OR REGEXP_MATCH(LOWER([result_title]), "korona\b")
-OR CONTAINS(LOWER([dc.result_title]),	"koronavirus"	)
+OR CONTAINS(LOWER([result_title]),	"korona"	)
 OR REGEXP_MATCH(([result_title]), "\bSARS")
 OR REGEXP_MATCH(LOWER([result_title]), "\bncov")
 OR REGEXP_MATCH(LOWER([result_title]), "\bsars-cov")
@@ -159,8 +159,7 @@ CONTAINS(LOWER([result_title_anthology]),	"pandemi"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"covid"	)
 OR CONTAINS(LOWER([result_title_anthology]),	"coronavirus"	)
 OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bcorona\b")
-OR REGEXP_MATCH(LOWER([result_title_anthology]), "korona\b")
-OR CONTAINS(LOWER([dc.result_title_anthology]),	"koronavirus"	)
+OR CONTAINS(LOWER([result_title_anthology]),	"korona"	)
 OR REGEXP_MATCH(([result_title_anthology]), "\bSARS")
 OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bsars-cov")
 OR REGEXP_MATCH(LOWER([result_title_anthology]), "\bsarscov")
@@ -190,7 +189,9 @@ END
 
 ### Search string, BORA (Bergen Open Research Archive)
 
-This search is for looking within the archive for master theses and PhD dissertations. It is based on the Cristin search over. The translation of "ansiktsmask" (face mask) was tested, but only added irrelevant results about face masks for neonatal resuscitation (as in Web of Science) and was thus removed. 
+This search is for looking within the archive for master theses and PhD dissertations. It is based on the Cristin search over. 
+
+- While in the Cristin search "korona" was not limited in any way, here it mainly adds extra results about coronary issues (likely because so many works in BORA have a Norwegian abstract). Therefore, "korona" is limited in this search. A few more Norwegian "korona" terms are added to catch the two relevant works that were found by unlimited "korona".  
 
 ```
 IF 
@@ -200,6 +201,10 @@ OR CONTAINS(LOWER([name]),	"coronavirus"	)
 OR REGEXP_MATCH(LOWER([name]), "\bcorona\b")
 OR REGEXP_MATCH(LOWER([name]), "korona\b")
 OR CONTAINS(LOWER([name]),	"koronavirus"	)
+OR CONTAINS(LOWER([name]),	"koronatiltak"	)
+OR CONTAINS(LOWER([name]),	"koronakris"	)
+OR CONTAINS(LOWER([name]),	"koronasituas"	)
+OR CONTAINS(LOWER([name]),	"koronavaksin"	)
 OR REGEXP_MATCH(([name]), "\bSARS")
 OR REGEXP_MATCH(LOWER([name]), "\bncov")
 OR REGEXP_MATCH(LOWER([name]), "\bsars-cov")
@@ -231,6 +236,10 @@ OR CONTAINS(LOWER([dc.description.abstract]),	"coronavirus"	)
 OR REGEXP_MATCH(LOWER([dc.description.abstract]), "\bcorona\b")
 OR REGEXP_MATCH(LOWER([dc.description.abstract]), "korona\b")
 OR CONTAINS(LOWER([dc.description.abstract]),	"koronavirus"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"koronatiltak"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"koronakris"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"koronasituas"	)
+OR CONTAINS(LOWER([dc.description.abstract]),	"koronavaksin"	)
 OR REGEXP_MATCH(([dc.description.abstract]), "\bSARS")
 OR REGEXP_MATCH(LOWER([dc.description.abstract]), "\bncov")
 OR REGEXP_MATCH(LOWER([dc.description.abstract]), "\bsars-cov")
@@ -262,6 +271,10 @@ OR CONTAINS(LOWER([dc.subject]),	"coronavirus"	)
 OR REGEXP_MATCH(LOWER([dc.subject]), "\bcorona\b")
 OR REGEXP_MATCH(LOWER([dc.subject]), "korona\b")
 OR CONTAINS(LOWER([dc.subject]),	"koronavirus"	)
+OR CONTAINS(LOWER([dc.subject]),	"koronatiltak"	)
+OR CONTAINS(LOWER([dc.subject]),	"koronakris"	)
+OR CONTAINS(LOWER([dc.subject]),	"koronasituas"	)
+OR CONTAINS(LOWER([dc.subject]),	"koronavaksin"	)
 OR REGEXP_MATCH(([dc.subject]), "\bSARS")
 OR REGEXP_MATCH(LOWER([dc.subject]), "\bncov")
 OR REGEXP_MATCH(LOWER([dc.subject]), "\bsars-cov")
