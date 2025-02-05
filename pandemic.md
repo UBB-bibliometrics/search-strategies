@@ -189,7 +189,7 @@ END
 
 ### Search string, BORA (Bergen Open Research Archive)
 
-This search is for looking within the archive for master theses and PhD dissertations. It is based on the Cristin search over. 
+This search is for looking within the archive for master theses and PhD dissertations. It is based on the Cristin search over. (English and Norwegian; title, abstract and keyword search)
 
 - While in the Cristin search "korona" was not limited in any way, here it mainly adds extra results about coronary issues (likely because so many works in BORA have a Norwegian abstract). Therefore, "korona" is limited in this search. A few more Norwegian "korona" terms are added to catch the two relevant works that were found by unlimited "korona".  
 
