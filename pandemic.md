@@ -1,8 +1,10 @@
 # Pandemic research
 
-Authors: Caroline S. Armitage, University of Bergen
-
 Bestilling: Pandemic Centre at UiB
+
+Date: Spring 2025
+
+Resulting report: https://hdl.handle.net/11250/3182716
 
 ## Scope
 
