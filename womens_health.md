@@ -38,6 +38,8 @@ END
 These are fetched from conditions listed under two central webpages for women's health (NIH: https://www.nichd.nih.gov/health/topics/womenshealth, Helse Norge: https://www.helsenorge.no/kvinnehelse/) or from publication titles.
 
 ```
+//**PLACEHOLDER**
+
 IF CONTAINS(LOWER([scientfic_field_npi]), "fødselshjelp og kvinnesykdommer") 
 ELSE NULL
 END
