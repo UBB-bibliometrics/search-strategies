@@ -1,5 +1,7 @@
 # Women's health search string
 
+Status: In progress unfinished draft.
+
 Author: Caroline Armitage, University of Bergen
 
 Task: Mapping of publications from DRIV, the Center for Research on Women's Health at UiB (https://www.uib.no/en/driv), May 2025. Recieved from an advisor at DRIV.
@@ -37,29 +39,42 @@ END
 
 These are fetched from conditions listed under two central webpages for women's health (NIH: https://www.nichd.nih.gov/health/topics/womenshealth, Helse Norge: https://www.helsenorge.no/kvinnehelse/) or from publication titles.
 
+English is first, Norwegian is second. Sometimes both languages or variants can be captured by the same term with truncation (e.g. endometrial (EN), endometriosis (EN), endometriose (NO)). 
+
+Body terms are included as these will often capture conditions, e.g. uterine will also capture "uterine fibroids" (and livmor (NO) livmorknuter), ovary will capture "polycystic ovary syndrome", as mentioned on the NIH website.
+
 ```
 //**PLACEHOLDER**
 
-IF CONTAINS(LOWER([scientfic_field_npi]), "fødselshjelp og kvinnesykdommer") 
-ELSE NULL
-END
-OR
-CONTAINS(LOWER([result_title]), "music therap")
-OR CONTAINS(LOWER([result_title]), "musikkterap")
+IF CONTAINS(LOWER([result_title]), "women's health") CONTAINS(LOWER([result_title]), "womens health") OR CONTAINS(LOWER([result_title]), "kvinnehelse") OR CONTAINS(LOWER([result_title]), "kvinnesykdom")
+OR CONTAINS(LOWER([result_title]), "gynecolog") CONTAINS(LOWER([result_title]), "obstetric") 
+
+OR CONTAINS(LOWER([result_title]), "amenorrhea") OR CONTAINS(LOWER([result_title]), "amenoré")
+OR CONTAINS(LOWER([result_title]), "menarche")
+OR CONTAINS(LOWER([result_title]), "menopause") OR CONTAINS(LOWER([result_title]), "overgangsalder")
+OR CONTAINS(LOWER([result_title]), "menstrua") OR REGEXP_MATCH(LOWER([result_title]), "\bmensen")
+
+OR CONTAINS(LOWER([result_title]), "endometrios") OR REGEXP_MATCH(LOWER([result_title]), "\bendometri")
+OR CONTAINS(LOWER([result_title]), "uterine")
+OR CONTAINS(LOWER([result_title]), "uterus")
+OR CONTAINS(LOWER([result_title]), "cervix") OR CONTAINS(LOWER([result_title]), "livmor")
+OR REGEXP_MATCH(LOWER([result_title]), "\bovary") OR CONTAINS(LOWER([result_title]), "ovarian") OR REGEXP_MATCH(LOWER([result_title]), "\bovari") OR CONTAINS(LOWER([result_title]), "eggstokk")
+OR REGEXP_MATCH(([result_title]), "\bPCOS\b")
+
 OR
 ((
-CONTAINS (LOWER([result_title]), "music")
-OR CONTAINS(LOWER([result_title]), "improvis")
-OR CONTAINS(LOWER([result_title]), "songwrit")
-OR REGEXP_MATCH(LOWER([result_title]), "\bsing\b")
-OR CONTAINS(LOWER([result_title]), "singer")
-OR CONTAINS(LOWER([result_title]), "singing")
-OR REGEXP_MATCH(LOWER([result_title]), "\bchoir")
+CONTAINS (LOWER([result_title]), "")
+OR CONTAINS(LOWER([result_title]), "")
+OR CONTAINS(LOWER([result_title]), "")
+OR REGEXP_MATCH(LOWER([result_title]), "\b\b")
+OR CONTAINS(LOWER([result_title]), "")
+OR CONTAINS(LOWER([result_title]), "")
+OR REGEXP_MATCH(LOWER([result_title]), "\b")
 )
 AND
 (
-CONTAINS (LOWER([result_title]), "therap")
-OR CONTAINS(LOWER([result_title]), "health")
+CONTAINS (LOWER([result_title]), "")
+OR CONTAINS(LOWER([result_title]), "")
 ))
 
 THEN 'womenshealth'
