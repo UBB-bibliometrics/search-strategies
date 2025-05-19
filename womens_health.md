@@ -55,7 +55,7 @@ OR CONTAINS(LOWER([result_title]), "menstrua") OR REGEXP_MATCH(LOWER([result_tit
 OR CONTAINS(LOWER([result_title]), "uterine") OR CONTAINS(LOWER([result_title]), "uterus") OR CONTAINS(LOWER([result_title]), "livmor")
 OR CONTAINS(LOWER([result_title]), "endometrios") OR REGEXP_MATCH(LOWER([result_title]), "\bendometri") OR CONTAINS(LOWER([result_title]), "endometrios") OR CONTAINS(LOWER([result_title]), "adenomyos")
 OR CONTAINS(LOWER([result_title]), "cervix") OR CONTAINS(LOWER([result_title]), "cervical")
-OR REGEXP_MATCH(LOWER([result_title]), "\bovary") OR CONTAINS(LOWER([result_title]), "ovarian") OR REGEXP_MATCH(LOWER([result_title]), "\bovari") OR CONTAINS(LOWER([result_title]), "eggstokk")
+OR REGEXP_MATCH(LOWER([result_title]), "\bovary") OR REGEXP_MATCH(LOWER([result_title]), "ovarian\b") OR REGEXP_MATCH(LOWER([result_title]), "\bovari") OR CONTAINS(LOWER([result_title]), "eggstokk")
 OR REGEXP_MATCH(([result_title]), "\bPCOS\b")
 OR CONTAINS(LOWER([result_title]), "vagina") OR CONTAINS(LOWER([result_title]), "vulva") OR CONTAINS(LOWER([result_title]), "skjede") OR CONTAINS(LOWER([result_title]), "underliv")
 OR CONTAINS(LOWER([result_title]), "vulvodyn") OR CONTAINS(LOWER([result_title]), "vaginit") OR CONTAINS(LOWER([result_title]), "vestibulit")
