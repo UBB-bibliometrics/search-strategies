@@ -29,7 +29,7 @@ We therefore take multiple approaches for the search strategy:
 ### 1. NPI Gynaecology and Obstetrics
 
 ```
-IF CONTAINS(LOWER([scientfic_field_npi]), "fødselshjelp og kvinnesykdommer")
+IF CONTAINS(LOWER([scientific_field_npi]), "fødselshjelp og kvinnesykdommer")
 THEN 'womenshealth'
 ELSE NULL
 END
@@ -101,7 +101,7 @@ END
 ```
 IF
 ((
-CONTAINS(LOWER([scientfic_area_npi]), "medisin og helsefag")
+CONTAINS(LOWER([scientific_area_npi]), "medisin og helsefag")
 OR CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
 OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
 OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk")
