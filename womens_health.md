@@ -46,8 +46,8 @@ Body terms are included as these will often capture conditions, e.g. uterine wil
 ```
 //**PLACEHOLDER**
 
-IF CONTAINS(LOWER([result_title]), "women's health") CONTAINS(LOWER([result_title]), "womens health") OR CONTAINS(LOWER([result_title]), "kvinnehelse") OR CONTAINS(LOWER([result_title]), "kvinnesykdom")
-OR CONTAINS(LOWER([result_title]), "gynecolog") CONTAINS(LOWER([result_title]), "obstetric") 
+IF CONTAINS(LOWER([result_title]), "women's health") OR CONTAINS(LOWER([result_title]), "womens health") OR CONTAINS(LOWER([result_title]), "kvinnehelse") OR CONTAINS(LOWER([result_title]), "kvinnesykdom")
+OR CONTAINS(LOWER([result_title]), "gynecolog") OR CONTAINS(LOWER([result_title]), "obstetric") 
 
 OR CONTAINS(LOWER([result_title]), "amenorrhea") OR CONTAINS(LOWER([result_title]), "amenoré")
 OR CONTAINS(LOWER([result_title]), "menarche")
@@ -67,7 +67,7 @@ OR CONTAINS(LOWER([result_title]), "pelvic floor") OR CONTAINS(LOWER([result_tit
 OR CONTAINS(LOWER([result_title]), "pelvic pain") OR CONTAINS(LOWER([result_title]), "pelvic inflam") OR CONTAINS(LOWER([result_title]), "bekkeninfeksjon")
 
 OR CONTAINS(LOWER([result_title]), "pregnan") OR CONTAINS(LOWER([result_title]), "gravid") OR CONTAINS(LOWER([result_title]), "svangerskap")
-OR CONTAINS(LOWER([result_title]), "prenatal") OR CONTAINS(LOWER([result_title]), "antenatal") OR CONTAINS(LOWER([result_title]), "postnatal") OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
+OR REGEXP_MATCH(LOWER([result_title]), "natal\b") OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
 OR CONTAINS(LOWER([result_title]), "trimester")
 OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
 OR CONTAINS(LOWER([result_title]), "eclampsia") OR CONTAINS(LOWER([result_title]), "eklampsi")
