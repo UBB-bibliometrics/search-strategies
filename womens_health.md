@@ -65,6 +65,7 @@ OR CONTAINS(LOWER([result_title]), "thrush") OR CONTAINS(LOWER([result_title]), 
 OR CONTAINS(LOWER([result_title]), "female genital") OR CONTAINS(LOWER([result_title]), "kjønnslemlestelse")
 OR CONTAINS(LOWER([result_title]), "pelvic floor") OR CONTAINS(LOWER([result_title]), "bekkenbunn")
 OR CONTAINS(LOWER([result_title]), "pelvic pain") OR CONTAINS(LOWER([result_title]), "pelvic inflam") OR CONTAINS(LOWER([result_title]), "bekkeninfeksjon")
+OR (CONTAINS (LOWER([result_title]), "health") AND CONTAINS (LOWER([result_title]), "prolapse"))
 
 OR CONTAINS(LOWER([result_title]), "pregnan") OR CONTAINS(LOWER([result_title]), "gravid") OR CONTAINS(LOWER([result_title]), "svangerskap")
 OR REGEXP_MATCH(LOWER([result_title]), "natal\b") OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
