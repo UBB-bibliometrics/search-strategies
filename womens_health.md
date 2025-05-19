@@ -100,6 +100,12 @@ END
 
 ### 3. Health issues and diseases with a gender/sex dimension
 
+This part of the strategy combines words for women or gender with medical terms, mainly using the NPI field "Medicine and health".
+
+I tested using additional individual health terms for conditions that primarily affect women, but this added only 5 extra results for Norway in the last 5 years, only 1 relevant: 
+`OR CONTAINS(LOWER([result_title]), "back pain") OR CONTAINS(LOWER([result_title]), "auto-immune") OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "stroke") OR CONTAINS(LOWER([result_title]), "heart disease") OR CONTAINS(LOWER([result_title]), "skeletal") OR CONTAINS(LOWER([result_title]), "headache") OR CONTAINS(LOWER([result_title]), "migrene")
+OR CONTAINS(LOWER([result_title]), "anxiety") OR CONTAINS(LOWER([result_title]), "depression")`
+
 ```
 IF
 ((
