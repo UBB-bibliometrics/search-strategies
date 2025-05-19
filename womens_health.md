@@ -68,7 +68,8 @@ OR CONTAINS(LOWER([result_title]), "pelvic pain") OR CONTAINS(LOWER([result_titl
 OR (CONTAINS (LOWER([result_title]), "pelvic") AND CONTAINS (LOWER([result_title]), "prolapse"))
 
 OR CONTAINS(LOWER([result_title]), "pregnan") OR CONTAINS(LOWER([result_title]), "gravid") OR CONTAINS(LOWER([result_title]), "svangerskap")
-OR REGEXP_MATCH(LOWER([result_title]), "natal\b") OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
+OR CONTAINS(LOWER([result_title]), "prenatal") OR CONTAINS(LOWER([result_title]), "antenatal") OR CONTAINS(LOWER([result_title]), "postnatal")
+OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
 OR CONTAINS(LOWER([result_title]), "trimester")
 OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
 OR CONTAINS(LOWER([result_title]), "eclampsia") OR CONTAINS(LOWER([result_title]), "eklampsi")
