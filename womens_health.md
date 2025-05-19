@@ -39,7 +39,7 @@ END
 
 These are fetched from conditions listed under two central webpages for women's health (NIH: https://www.nichd.nih.gov/health/topics/womenshealth, Helse Norge: https://www.helsenorge.no/kvinnehelse/) or from publication titles.
 
-English is first, Norwegian is second. Sometimes both languages or variants can be captured by the same term with truncation (e.g. endometrial (EN), endometriosis (EN), endometriose (NO)). 
+English is listed first, Norwegian is after. Sometimes both languages or variants can be captured by the same term with truncation (e.g. `endrometri` = endometrial (EN), endometriosis (EN), endometriose (NO)). 
 
 Body terms are included as these will often capture conditions, e.g. uterine will also capture "uterine fibroids" (and livmor (NO) livmorknuter), ovary will capture "polycystic ovary syndrome", as mentioned on the NIH website.
 
