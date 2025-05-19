@@ -22,9 +22,9 @@ The search strategy also includes searches for publications from specific people
 Finding publications within the scope is challenging because we do not have an exhaustive definitive list of the health issues that should be included under "women's health". 
 For example, research about how a disease affects women vs. men may be relevant even though the disease is not a traditional "women's health" disease. 
 We therefore take multiple approaches for the search strategy:
-1. All publications published in journals under the Norwegian Publishing Indicator category for Gynaecology and Obstetrics (https://npi.hkdir.no/fagfeltoversikt/fagfelt?id=1069)
+1. All publications published in journals under the Norwegian Publishing Indicator (NPI) category for Gynaecology and Obstetrics (https://npi.hkdir.no/fagfeltoversikt/fagfelt?id=1069)
 2. Search terms for female-specific health issues, diseases, or body terms
-3. Search terms for general diseases/health that are combined with a gender/sex/female dimension
+3. Search terms for a gender/sex/female dimension, combined with any health work. "Health works" were found mainly by using the NPI area "Health Sciences" (https://npi.hkdir.no/fagfeltoversikt), plus a few terms
 
 ### 1. NPI Gynaecology and Obstetrics
 
