@@ -71,7 +71,7 @@ OR REGEXP_MATCH(LOWER([result_title]), "natal\b") OR CONTAINS(LOWER([result_titl
 OR CONTAINS(LOWER([result_title]), "trimester")
 OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
 OR CONTAINS(LOWER([result_title]), "eclampsia") OR CONTAINS(LOWER([result_title]), "eklampsi")
-OR CONTAINS(LOWER([result_title]), "birth") OR CONTAINS(LOWER([result_title]), "fødsel")
+OR CONTAINS(LOWER([result_title]), "birth") OR CONTAINS(LOWER([result_title]), "cesarean") OR CONTAINS(LOWER([result_title]), "fødsel") OR CONTAINS(LOWER([result_title]), "keisersnitt")
 OR CONTAINS(LOWER([result_title]), "breastfeed") OR CONTAINS(LOWER([result_title]), "amming") 
 OR CONTAINS(LOWER([result_title]), "abortion") OR CONTAINS(LOWER([result_title]), "miscarriage") OR REGEXP_MATCH(LOWER([result_title]), "\babort")
 OR CONTAINS(LOWER([result_title]), "contraception") OR CONTAINS(LOWER([result_title]), "birth control") OR CONTAINS(LOWER([result_title]), "prevensjon") 
@@ -87,7 +87,7 @@ OR
   )
   AND
   (
-  CONTAINS (LOWER([result_title]), "maternal") OR CONTAINS(LOWER([result_title]), "mother")
+  CONTAINS (LOWER([result_title]), "maternal") OR CONTAINS (LOWER([result_title]), "maternity") OR CONTAINS(LOWER([result_title]), "mother")
   OR REGEXP_MATCH(LOWER([result_title]), "\bmor\b") OR REGEXP_MATCH(LOWER([result_title]), "\bmoren\b") OR CONTAINS(LOWER([result_title]), "mødre")
   ))
 THEN 'womenshealth'
