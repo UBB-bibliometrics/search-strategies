@@ -64,6 +64,8 @@ OR CONTAINS(LOWER([result_title]), "female genital") OR CONTAINS(LOWER([result_t
 OR CONTAINS(LOWER([result_title]), "pelvic floor") OR CONTAINS(LOWER([result_title]), "bekkenbunn")
 OR CONTAINS(LOWER([result_title]), "pelvic pain") OR CONTAINS(LOWER([result_title]), "pelvic inflam") OR CONTAINS(LOWER([result_title]), "bekkeninfeksjon")
 OR (CONTAINS (LOWER([result_title]), "pelvic") AND CONTAINS (LOWER([result_title]), "prolapse"))
+OR CONTAINS(LOWER([result_title]), "breast cancer") OR CONTAINS(LOWER([result_title]), "brystkreft")
+OR CONTAINS(LOWER([result_title]), "breast cyst") OR REGEXP_MATCH(LOWER([result_title]), "\bmastit") OR CONTAINS(LOWER([result_title]), "brystbetenn")
 
 OR CONTAINS(LOWER([result_title]), "pregnan") OR CONTAINS(LOWER([result_title]), "gravid") OR CONTAINS(LOWER([result_title]), "svangerskap")
 OR CONTAINS(LOWER([result_title]), "prenatal") OR CONTAINS(LOWER([result_title]), "antenatal") OR CONTAINS(LOWER([result_title]), "postnatal")
