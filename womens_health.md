@@ -44,14 +44,12 @@ English is first, Norwegian is second. Sometimes both languages or variants can 
 Body terms are included as these will often capture conditions, e.g. uterine will also capture "uterine fibroids" (and livmor (NO) livmorknuter), ovary will capture "polycystic ovary syndrome", as mentioned on the NIH website.
 
 ```
-//**PLACEHOLDER**
-
 IF CONTAINS(LOWER([result_title]), "women's health") OR CONTAINS(LOWER([result_title]), "womens health") OR CONTAINS(LOWER([result_title]), "kvinnehelse") OR CONTAINS(LOWER([result_title]), "kvinnesykdom")
 OR CONTAINS(LOWER([result_title]), "gynecolog") OR CONTAINS(LOWER([result_title]), "gynaecolog") OR CONTAINS(LOWER([result_title]), "obstetric") 
 
 OR CONTAINS(LOWER([result_title]), "amenorrhea") OR CONTAINS(LOWER([result_title]), "amenoré")
 OR CONTAINS(LOWER([result_title]), "menarche")
-OR CONTAINS(LOWER([result_title]), "menopause") OR CONTAINS(LOWER([result_title]), "overgangsalder")
+OR CONTAINS(LOWER([result_title]), "menopaus") OR CONTAINS(LOWER([result_title]), "overgangsalder")
 OR CONTAINS(LOWER([result_title]), "menstrua") OR REGEXP_MATCH(LOWER([result_title]), "\bmensen")
 
 OR CONTAINS(LOWER([result_title]), "uterine") OR CONTAINS(LOWER([result_title]), "uterus") OR CONTAINS(LOWER([result_title]), "livmor")
