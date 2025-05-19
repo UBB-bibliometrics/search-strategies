@@ -67,7 +67,7 @@ OR CONTAINS(LOWER([result_title]), "pelvic floor") OR CONTAINS(LOWER([result_tit
 OR CONTAINS(LOWER([result_title]), "pelvic pain") OR CONTAINS(LOWER([result_title]), "pelvic inflam") OR CONTAINS(LOWER([result_title]), "bekkeninfeksjon")
 
 OR CONTAINS(LOWER([result_title]), "pregnan") OR CONTAINS(LOWER([result_title]), "gravid") OR CONTAINS(LOWER([result_title]), "svangerskap")
-OR CONTAINS(LOWER([result_title]), "prenatal") OR CONTAINS(LOWER([result_title]), "postnatal") OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
+OR CONTAINS(LOWER([result_title]), "prenatal") OR CONTAINS(LOWER([result_title]), "antenatal") OR CONTAINS(LOWER([result_title]), "postnatal") OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
 OR CONTAINS(LOWER([result_title]), "trimester")
 OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
 OR CONTAINS(LOWER([result_title]), "eclampsia") OR CONTAINS(LOWER([result_title]), "eklampsi")
