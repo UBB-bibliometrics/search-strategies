@@ -14,17 +14,21 @@ Women's health is defined by the centre to include health issues specific to wom
 
 ## Search strategy 
 
-Search in Cristin for publications, using keywords in Norwegian and English, in combination with journal, book and anthology names. 
 The search is designed for searching in the Cristin database (Norway's national research information system), in Tableau via DUCT (from Sikt). 
+
+We use search terms in English and Norwegian to search in publication titles. We also find works using the Norwegian Publishing Indicator (NPI) subject fields, which is a subject-categorisation of journals (https://npi.hkdir.no/fagfeltoversikt). 
 
 The search strategy also includes searches for publications from specific people known to work in Women's health at the centre, but this part is not included here. 
 
-Finding publications within the scope is challenging because we do not have an exhaustive definitive list of the health issues that should be included under "women's health". 
+Finding publications within the scope described above is challenging because we do not have an exhaustive definitive list of the health issues that should be included under "women's health". 
 For example, research about how a disease affects women vs. men may be relevant even though the disease is not a traditional "women's health" disease. 
 We therefore take multiple approaches for the search strategy:
-1. All publications published in journals under the Norwegian Publishing Indicator (NPI) category for Gynaecology and Obstetrics (https://npi.hkdir.no/fagfeltoversikt/fagfelt?id=1069)
+1. All publications published in journals under the NPI category for Gynaecology and Obstetrics (https://npi.hkdir.no/fagfeltoversikt/fagfelt?id=1069)
 2. Search terms for female-specific health issues, diseases, or body terms
 3. Search terms for a gender/sex/female dimension, combined with any health work. "Health works" were found mainly by using the NPI area "Health Sciences" (https://npi.hkdir.no/fagfeltoversikt), plus a few terms
+
+**Search 1 aims to capture all works in journals specific to womens health (in a narrow sense); search 2 aims to capture works about female-specific health, regardless of field; search 3 aims to capture works related to
+womens health in a wider sense, i.e. any health/medical works with a gendered/female lens.**
 
 ### 1. NPI Gynaecology and Obstetrics
 
@@ -37,11 +41,9 @@ END
 
 ### 2. Health issues, diseases, body-terms
 
-These are fetched from conditions listed under two central webpages for women's health (NIH: https://www.nichd.nih.gov/health/topics/womenshealth, Helse Norge: https://www.helsenorge.no/kvinnehelse/) or from publication titles.
+These are fetched from conditions listed under two central webpages for women's health (NIH: https://www.nichd.nih.gov/health/topics/womenshealth, Helse Norge: https://www.helsenorge.no/kvinnehelse/) or from publication titles. Body terms are included as these will often capture conditions, e.g. uterine will also capture "uterine fibroids" (and livmor (NO) livmorknuter), ovary will capture "polycystic ovary syndrome", as mentioned on the NIH website.
 
 English is listed first, Norwegian is after. Sometimes both languages or variants can be captured by the same term with truncation (e.g. `endrometri` = endometrial (EN), endometriosis (EN), endometriose (NO)). 
-
-Body terms are included as these will often capture conditions, e.g. uterine will also capture "uterine fibroids" (and livmor (NO) livmorknuter), ovary will capture "polycystic ovary syndrome", as mentioned on the NIH website.
 
 ```
 IF CONTAINS(LOWER([result_title]), "women's health") OR CONTAINS(LOWER([result_title]), "womens health") OR CONTAINS(LOWER([result_title]), "kvinnehelse") OR CONTAINS(LOWER([result_title]), "kvinnesykdom")
@@ -99,8 +101,6 @@ END
 ```
 
 ### 3. Health issues and diseases with a gender/sex dimension
-
-This part of the strategy combines words for women or gender with medical terms, mainly using the NPI field "Medicine and health".
 
 I tested using additional individual health terms for conditions that primarily affect women, but this added only 5 extra results for Norway in the last 5 years, only 1 relevant: 
 `OR CONTAINS(LOWER([result_title]), "back pain") OR CONTAINS(LOWER([result_title]), "auto-immune") OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "stroke") OR CONTAINS(LOWER([result_title]), "heart disease") OR CONTAINS(LOWER([result_title]), "skeletal") OR CONTAINS(LOWER([result_title]), "headache") OR CONTAINS(LOWER([result_title]), "migrene")
