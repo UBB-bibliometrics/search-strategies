@@ -54,29 +54,42 @@ OR CONTAINS(LOWER([result_title]), "menarche")
 OR CONTAINS(LOWER([result_title]), "menopause") OR CONTAINS(LOWER([result_title]), "overgangsalder")
 OR CONTAINS(LOWER([result_title]), "menstrua") OR REGEXP_MATCH(LOWER([result_title]), "\bmensen")
 
-OR CONTAINS(LOWER([result_title]), "endometrios") OR REGEXP_MATCH(LOWER([result_title]), "\bendometri")
-OR CONTAINS(LOWER([result_title]), "uterine")
-OR CONTAINS(LOWER([result_title]), "uterus")
-OR CONTAINS(LOWER([result_title]), "cervix") OR CONTAINS(LOWER([result_title]), "livmor")
+OR CONTAINS(LOWER([result_title]), "uterine") OR CONTAINS(LOWER([result_title]), "uterus") OR CONTAINS(LOWER([result_title]), "livmor")
+OR CONTAINS(LOWER([result_title]), "endometrios") OR REGEXP_MATCH(LOWER([result_title]), "\bendometri") OR CONTAINS(LOWER([result_title]), "endometrios") OR CONTAINS(LOWER([result_title]), "adenomyos")
+OR CONTAINS(LOWER([result_title]), "cervix") OR CONTAINS(LOWER([result_title]), "cervical")
 OR REGEXP_MATCH(LOWER([result_title]), "\bovary") OR CONTAINS(LOWER([result_title]), "ovarian") OR REGEXP_MATCH(LOWER([result_title]), "\bovari") OR CONTAINS(LOWER([result_title]), "eggstokk")
 OR REGEXP_MATCH(([result_title]), "\bPCOS\b")
+OR CONTAINS(LOWER([result_title]), "vagina") OR CONTAINS(LOWER([result_title]), "vulva") OR CONTAINS(LOWER([result_title]), "skjede") OR CONTAINS(LOWER([result_title]), "underliv")
+OR CONTAINS(LOWER([result_title]), "vulvodyn") OR CONTAINS(LOWER([result_title]), "vaginit") OR CONTAINS(LOWER([result_title]), "vestibulit")
+OR CONTAINS(LOWER([result_title]), "thrush") OR CONTAINS(LOWER([result_title]), "soppinfeksjon") OR CONTAINS(LOWER([result_title]), "lichen scler") OR CONTAINS(LOWER([result_title]), "bacterial vagin") OR CONTAINS(LOWER([result_title]), "bakteriell vagino") OR CONTAINS(LOWER([result_title]), "skjedekatar") 
+OR CONTAINS(LOWER([result_title]), "female genital") OR CONTAINS(LOWER([result_title]), "kjønnslemlestelse")
+OR CONTAINS(LOWER([result_title]), "pelvic floor") OR CONTAINS(LOWER([result_title]), "bekkenbunn")
+OR CONTAINS(LOWER([result_title]), "pelvic pain") OR CONTAINS(LOWER([result_title]), "pelvic inflam") OR CONTAINS(LOWER([result_title]), "bekkeninfeksjon")
+
+OR CONTAINS(LOWER([result_title]), "pregnan") OR CONTAINS(LOWER([result_title]), "gravid") OR CONTAINS(LOWER([result_title]), "svangerskap")
+OR CONTAINS(LOWER([result_title]), "prenatal") OR CONTAINS(LOWER([result_title]), "postnatal") OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
+OR CONTAINS(LOWER([result_title]), "trimester")
+OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
+OR CONTAINS(LOWER([result_title]), "eclampsia") OR CONTAINS(LOWER([result_title]), "eklampsi")
+OR CONTAINS(LOWER([result_title]), "birth") OR CONTAINS(LOWER([result_title]), "fødsel")
+OR CONTAINS(LOWER([result_title]), "breastfeed") OR CONTAINS(LOWER([result_title]), "amming") 
+OR CONTAINS(LOWER([result_title]), "abortion") OR CONTAINS(LOWER([result_title]), "miscarriage") OR REGEXP_MATCH(LOWER([result_title]), "\babort")
+OR CONTAINS(LOWER([result_title]), "contraception") OR CONTAINS(LOWER([result_title]), "birth control") OR CONTAINS(LOWER([result_title]), "prevensjon") 
+
+OR CONTAINS(LOWER([result_title]), "turner's syndrome") OR CONTAINS(LOWER([result_title]), "turner syndrome")
+OR CONTAINS(LOWER([result_title]), "fragile x") OR CONTAINS(LOWER([result_title]), "fragilt x")
 
 OR
-((
-CONTAINS (LOWER([result_title]), "")
-OR CONTAINS(LOWER([result_title]), "")
-OR CONTAINS(LOWER([result_title]), "")
-OR REGEXP_MATCH(LOWER([result_title]), "\b\b")
-OR CONTAINS(LOWER([result_title]), "")
-OR CONTAINS(LOWER([result_title]), "")
-OR REGEXP_MATCH(LOWER([result_title]), "\b")
-)
-AND
-(
-CONTAINS (LOWER([result_title]), "")
-OR CONTAINS(LOWER([result_title]), "")
-))
-
+  ((
+  CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
+  OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
+  OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk")
+  )
+  AND
+  (
+  CONTAINS (LOWER([result_title]), "maternal") OR CONTAINS(LOWER([result_title]), "mother")
+  OR REGEXP_MATCH(LOWER([result_title]), "\bmor\b") OR REGEXP_MATCH(LOWER([result_title]), "\bmoren\b") OR CONTAINS(LOWER([result_title]), "mødre")
+  ))
 THEN 'womenshealth'
 ELSE NULL
 END
@@ -85,4 +98,21 @@ END
 
 ### 3. Health issues and diseases with a gender/sex dimension
 
-
+```
+IF
+((
+CONTAINS(LOWER([scientfic_area_npi]), "medisin og helsefag")
+OR CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
+OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
+OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk")
+)
+AND
+  (
+  CONTAINS (LOWER([result_title]), "woman") OR CONTAINS (LOWER([result_title]), "women") OR CONTAINS(LOWER([result_title]), "girl") OR CONTAINS (LOWER([result_title]), "female")
+  OR CONTAINS(LOWER([result_title]), "kvinne") OR CONTAINS(LOWER([result_title]), "jente")
+  OR CONTAINS(LOWER([result_title]), "gender") OR REGEXP_MATCH(LOWER([result_title]), "\bsex\b")
+  ))
+THEN 'womenshealth'
+ELSE NULL
+END
+```
