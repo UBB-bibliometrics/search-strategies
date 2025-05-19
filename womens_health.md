@@ -47,7 +47,7 @@ Body terms are included as these will often capture conditions, e.g. uterine wil
 //**PLACEHOLDER**
 
 IF CONTAINS(LOWER([result_title]), "women's health") OR CONTAINS(LOWER([result_title]), "womens health") OR CONTAINS(LOWER([result_title]), "kvinnehelse") OR CONTAINS(LOWER([result_title]), "kvinnesykdom")
-OR CONTAINS(LOWER([result_title]), "gynecolog") OR CONTAINS(LOWER([result_title]), "obstetric") 
+OR CONTAINS(LOWER([result_title]), "gynecolog") OR CONTAINS(LOWER([result_title]), "gynaecolog") OR CONTAINS(LOWER([result_title]), "obstetric") 
 
 OR CONTAINS(LOWER([result_title]), "amenorrhea") OR CONTAINS(LOWER([result_title]), "amenoré")
 OR CONTAINS(LOWER([result_title]), "menarche")
