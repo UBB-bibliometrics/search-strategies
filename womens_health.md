@@ -27,8 +27,7 @@ We therefore take multiple approaches for the search strategy:
 2. Search terms for female-specific health issues, diseases, or body terms
 3. Search terms for a gender/sex/female dimension, combined with any health work. "Health works" were found mainly by using the NPI area "Health Sciences" (https://npi.hkdir.no/fagfeltoversikt), plus a few terms
 
-**Search 1 aims to capture all works in journals specific to womens health (in a narrow sense); search 2 aims to capture works about female-specific health, regardless of field; search 3 aims to capture works related to
-womens health in a wider sense, i.e. any health/medical works with a gendered/female lens.**
+**Search 1 aims to capture all works in journals specific to womens health (in a narrow sense); search 2 aims to capture works about womens health (again in a narrow sense), regardless of field or journal; search 3 aims to capture works related to womens health in a wider sense, within health sciences (i.e. any health/medical works with a gendered/female lens).**
 
 ### 1. NPI Gynaecology and Obstetrics
 
