@@ -74,7 +74,7 @@ OR CONTAINS(LOWER([result_title]), "trimester")
 OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
 OR CONTAINS(LOWER([result_title]), "eclampsia") OR CONTAINS(LOWER([result_title]), "eklampsi")
 OR CONTAINS(LOWER([result_title]), "birth") OR CONTAINS(LOWER([result_title]), "cesarean") OR CONTAINS(LOWER([result_title]), "fødsel") OR CONTAINS(LOWER([result_title]), "keisersnitt")
-OR CONTAINS(LOWER([result_title]), "breastfeed") OR CONTAINS(LOWER([result_title]), "amming") 
+OR CONTAINS(LOWER([result_title]), "breastfeed") OR REGEXP_MATCH(LOWER([result_title]), "\bamming") 
 OR CONTAINS(LOWER([result_title]), "abortion") OR CONTAINS(LOWER([result_title]), "miscarriage") OR REGEXP_MATCH(LOWER([result_title]), "\babort")
 OR CONTAINS(LOWER([result_title]), "contraception") OR CONTAINS(LOWER([result_title]), "birth control") OR CONTAINS(LOWER([result_title]), "prevensjon") 
 
