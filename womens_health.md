@@ -40,21 +40,22 @@ END
 
 ### 2. Health issues, diseases, body-terms
 
-These are fetched from conditions listed under two central webpages for women's health (NIH: https://www.nichd.nih.gov/health/topics/womenshealth, Helse Norge: https://www.helsenorge.no/kvinnehelse/) or from publication titles. Body terms are included as these will often capture conditions, e.g. uterine will also capture "uterine fibroids" (and livmor (NO) livmorknuter), ovary will capture "polycystic ovary syndrome", as mentioned on the NIH website.
+These are fetched from conditions listed under two central webpages for women's health (NIH: https://www.nichd.nih.gov/health/topics/womenshealth, HelseNorge: https://www.helsenorge.no/kvinnehelse/) or from publication titles. Body terms are included as these will often capture conditions, e.g. uterine will also capture "uterine fibroids" (and livmor (NO) livmorknuter), ovary will capture "polycystic ovary syndrome", as mentioned on the NIH website.
 
-English is listed first, Norwegian is after. Sometimes both languages or variants can be captured by the same term with truncation (e.g. `endrometri` = endometrial (EN), endometriosis (EN), endometriose (NO)). 
+English is listed first, Norwegian is after. Sometimes both languages or variants can be captured by the same term with truncation (e.g. `endometri` = endometrial (EN), endometriosis (EN), endometriose (NO)). `estrogen` and variants are limited to avoid phytoestrogens, estrogenic environmental effects etc.
 
 ```
 IF CONTAINS(LOWER([result_title]), "women's health") OR CONTAINS(LOWER([result_title]), "womens health") OR CONTAINS(LOWER([result_title]), "kvinnehelse") OR CONTAINS(LOWER([result_title]), "kvinnesykdom")
-OR CONTAINS(LOWER([result_title]), "gynecolog") OR CONTAINS(LOWER([result_title]), "gynaecolog") OR CONTAINS(LOWER([result_title]), "obstetric") 
+OR CONTAINS(LOWER([result_title]), "gynecolog") OR CONTAINS(LOWER([result_title]), "gynaecolog") OR CONTAINS(LOWER([result_title]), "obstetric") OR  CONTAINS(LOWER([result_title]), "gynekolog")  OR CONTAINS(LOWER([result_title]), "obstetrik") 
 
 OR CONTAINS(LOWER([result_title]), "amenorrhea") OR CONTAINS(LOWER([result_title]), "amenoré")
 OR CONTAINS(LOWER([result_title]), "menarche")
 OR CONTAINS(LOWER([result_title]), "menopaus") OR CONTAINS(LOWER([result_title]), "overgangsalder")
 OR CONTAINS(LOWER([result_title]), "menstrua") OR REGEXP_MATCH(LOWER([result_title]), "\bmensen")
+OR REGEXP_MATCH(LOWER([result_title]), "\boestrogen\b") OR REGEXP_MATCH(LOWER([result_title]), "\bestrogen\b") OR CONTAINS(LOWER([result_title]), "progesteron")
 
 OR CONTAINS(LOWER([result_title]), "uterine") OR CONTAINS(LOWER([result_title]), "uterus") OR CONTAINS(LOWER([result_title]), "livmor")
-OR CONTAINS(LOWER([result_title]), "endometrios") OR REGEXP_MATCH(LOWER([result_title]), "\bendometri") OR CONTAINS(LOWER([result_title]), "endometrios") OR CONTAINS(LOWER([result_title]), "adenomyos")
+OR CONTAINS(LOWER([result_title]), "endometrios") OR REGEXP_MATCH(LOWER([result_title]), "\bendometri") OR CONTAINS(LOWER([result_title]), "adenomyos")
 OR CONTAINS(LOWER([result_title]), "cervix") OR CONTAINS(LOWER([result_title]), "cervical")
 OR REGEXP_MATCH(LOWER([result_title]), "\bovary") OR REGEXP_MATCH(LOWER([result_title]), "ovarian\b") OR REGEXP_MATCH(LOWER([result_title]), "\bovari") OR CONTAINS(LOWER([result_title]), "eggstokk")
 OR REGEXP_MATCH(([result_title]), "\bPCOS\b")
@@ -70,23 +71,26 @@ OR CONTAINS(LOWER([result_title]), "breast cyst") OR REGEXP_MATCH(LOWER([result_
 
 OR CONTAINS(LOWER([result_title]), "pregnan") OR CONTAINS(LOWER([result_title]), "gravid") OR CONTAINS(LOWER([result_title]), "svangerskap")
 OR CONTAINS(LOWER([result_title]), "prenatal") OR CONTAINS(LOWER([result_title]), "antenatal") OR CONTAINS(LOWER([result_title]), "postnatal")
-OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "barsel")
+OR CONTAINS(LOWER([result_title]), "postpartum") OR CONTAINS(LOWER([result_title]), "peripartum") OR CONTAINS(LOWER([result_title]), "barsel")
 OR CONTAINS(LOWER([result_title]), "trimester")
-OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
+OR CONTAINS(LOWER([result_title]), "umbilical") OR CONTAINS(LOWER([result_title]), "navlesnor") OR CONTAINS(LOWER([result_title]), "navlestreng") 
+OR CONTAINS(LOWER([result_title]), "placenta") OR CONTAINS(LOWER([result_title]), "morkake")
 OR CONTAINS(LOWER([result_title]), "eclampsia") OR CONTAINS(LOWER([result_title]), "eklampsi")
 OR CONTAINS(LOWER([result_title]), "birth") OR CONTAINS(LOWER([result_title]), "cesarean") OR CONTAINS(LOWER([result_title]), "fødsel") OR CONTAINS(LOWER([result_title]), "keisersnitt")
+OR ((CONTAINS (LOWER([result_title]), "preterm") OR CONTAINS (LOWER([result_title]), "pre-term") OR CONTAINS (LOWER([result_title]), "premature"))
+  AND (CONTAINS (LOWER([result_title]), "labor") OR CONTAINS (LOWER([result_title]), "labour") OR CONTAINS (LOWER([result_title]), "delivery") ))
 OR CONTAINS(LOWER([result_title]), "breastfeed") OR REGEXP_MATCH(LOWER([result_title]), "\bamming") 
 OR CONTAINS(LOWER([result_title]), "abortion") OR CONTAINS(LOWER([result_title]), "miscarriage") OR REGEXP_MATCH(LOWER([result_title]), "\babort")
 OR CONTAINS(LOWER([result_title]), "contraception") OR CONTAINS(LOWER([result_title]), "birth control") OR CONTAINS(LOWER([result_title]), "prevensjon") 
 
-OR CONTAINS(LOWER([result_title]), "turner's syndrome") OR CONTAINS(LOWER([result_title]), "turner syndrome")
+OR CONTAINS(LOWER([result_title]), "turner's syndrom") OR CONTAINS(LOWER([result_title]), "turner syndrom")
 OR CONTAINS(LOWER([result_title]), "fragile x") OR CONTAINS(LOWER([result_title]), "fragilt x")
 
 OR
   ((
   CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
   OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
-  OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk")
+  OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk") OR CONTAINS(LOWER([result_title]), "klinisk")
   )
   AND
   (
