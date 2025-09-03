@@ -86,17 +86,6 @@ OR CONTAINS(LOWER([result_title]), "contraception") OR CONTAINS(LOWER([result_ti
 OR CONTAINS(LOWER([result_title]), "turner's syndrom") OR CONTAINS(LOWER([result_title]), "turner syndrom")
 OR CONTAINS(LOWER([result_title]), "fragile x") OR CONTAINS(LOWER([result_title]), "fragilt x")
 
-OR
-  ((
-  CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
-  OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
-  OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk") OR CONTAINS(LOWER([result_title]), "klinisk")
-  )
-  AND
-  (
-  CONTAINS (LOWER([result_title]), "maternal") OR CONTAINS (LOWER([result_title]), "maternity") OR CONTAINS(LOWER([result_title]), "mother")
-  OR REGEXP_MATCH(LOWER([result_title]), "\bmor\b") OR REGEXP_MATCH(LOWER([result_title]), "\bmoren\b") OR CONTAINS(LOWER([result_title]), "mødre")
-  ))
 THEN 'womenshealth'
 ELSE NULL
 END
@@ -105,17 +94,18 @@ END
 
 ### 3. Health issues and diseases with a gender/sex dimension
 
-I tested using additional individual health terms for conditions that primarily affect women, but this added only 5 extra results for Norway in the last 5 years, only 1 relevant: 
-`OR CONTAINS(LOWER([result_title]), "back pain") OR CONTAINS(LOWER([result_title]), "auto-immune") OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "stroke") OR CONTAINS(LOWER([result_title]), "heart disease") OR CONTAINS(LOWER([result_title]), "skeletal") OR CONTAINS(LOWER([result_title]), "headache") OR CONTAINS(LOWER([result_title]), "migrene")
-OR CONTAINS(LOWER([result_title]), "anxiety") OR CONTAINS(LOWER([result_title]), "depression")`
-
 ```
 IF
 ((
 CONTAINS(LOWER([scientific_area_npi]), "medisin og helsefag")
 OR CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
+OR CONTAINS(LOWER([result_title]), "disease") OR CONTAINS(LOWER([result_title]), "sykdom")
+OR CONTAINS(LOWER([result_title]), "injuries") OR CONTAINS(LOWER([result_title]), "injury") OR CONTAINS(LOWER([result_title]), "skade")
+OR CONTAINS(LOWER([result_title]), "violence") OR REGEXP_MATCH(LOWER([result_title]), "\bvold") 
 OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
 OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk") OR CONTAINS(LOWER([result_title]), "klinisk")
+OR CONTAINS(LOWER([result_title]), "back pain") OR CONTAINS(LOWER([result_title]), "auto-immun") OR CONTAINS(LOWER([result_title]), "autoimmun") OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "stroke") OR CONTAINS(LOWER([result_title]), "heart disease") OR CONTAINS(LOWER([result_title]), "headache") OR CONTAINS(LOWER([result_title]), "migrene")
+OR CONTAINS(LOWER([result_title]), "anxiety") OR CONTAINS(LOWER([result_title]), "depression")
 )
 AND
   (
@@ -124,6 +114,7 @@ AND
   OR CONTAINS(LOWER([result_title]), "gender") OR CONTAINS(LOWER([result_title]), "kjønn") OR REGEXP_MATCH(LOWER([result_title]), "\bsex\b")
   OR CONTAINS (LOWER([result_title]), "maternal") OR CONTAINS (LOWER([result_title]), "maternity") OR CONTAINS(LOWER([result_title]), "mother")
   OR REGEXP_MATCH(LOWER([result_title]), "\bmor\b") OR REGEXP_MATCH(LOWER([result_title]), "\bmoren\b") OR CONTAINS(LOWER([result_title]), "mødre")
+  OR [scientific_field_npi]=="Kjønnsforskning"
   ))
 THEN 'womenshealth'
 ELSE NULL
