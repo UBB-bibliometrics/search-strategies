@@ -62,7 +62,7 @@ OR REGEXP_MATCH(([result_title]), "\bPCOS\b")
 OR CONTAINS(LOWER([result_title]), "vagina") OR CONTAINS(LOWER([result_title]), "vulva") OR CONTAINS(LOWER([result_title]), "skjede") OR CONTAINS(LOWER([result_title]), "underliv")
 OR CONTAINS(LOWER([result_title]), "vulvodyn") OR CONTAINS(LOWER([result_title]), "vaginit") OR CONTAINS(LOWER([result_title]), "vestibulit")
 OR CONTAINS(LOWER([result_title]), "thrush") OR CONTAINS(LOWER([result_title]), "soppinfeksjon") OR CONTAINS(LOWER([result_title]), "lichen scler") OR CONTAINS(LOWER([result_title]), "bacterial vagin") OR CONTAINS(LOWER([result_title]), "bakteriell vagino") OR CONTAINS(LOWER([result_title]), "skjedekatar") 
-OR CONTAINS(LOWER([result_title]), "female genital") OR CONTAINS(LOWER([result_title]), "kjønnslemlestelse") OR (CONTAINS (LOWER([result_title]), "kvinn") AND CONTAINS (LOWER([result_title]), "omskjær"))
+OR CONTAINS(LOWER([result_title]), "female genital") OR CONTAINS(LOWER([result_title]), "kjønnslemlest") OR (CONTAINS (LOWER([result_title]), "kvinn") AND CONTAINS (LOWER([result_title]), "omskjær"))
 OR CONTAINS(LOWER([result_title]), "pelvic floor") OR CONTAINS(LOWER([result_title]), "bekkenbunn")
 OR CONTAINS(LOWER([result_title]), "pelvic pain") OR CONTAINS(LOWER([result_title]), "pelvic inflam") OR CONTAINS(LOWER([result_title]), "bekkeninfeksjon")
 OR (CONTAINS (LOWER([result_title]), "pelvic") AND CONTAINS (LOWER([result_title]), "prolapse"))
@@ -115,13 +115,15 @@ IF
 CONTAINS(LOWER([scientific_area_npi]), "medisin og helsefag")
 OR CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
 OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
-OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk")
+OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk") OR CONTAINS(LOWER([result_title]), "klinisk")
 )
 AND
   (
   CONTAINS (LOWER([result_title]), "woman") OR CONTAINS (LOWER([result_title]), "women") OR CONTAINS(LOWER([result_title]), "girl") OR CONTAINS (LOWER([result_title]), "female")
   OR CONTAINS(LOWER([result_title]), "kvinne") OR CONTAINS(LOWER([result_title]), "jente")
-  OR CONTAINS(LOWER([result_title]), "gender") OR REGEXP_MATCH(LOWER([result_title]), "\bsex\b")
+  OR CONTAINS(LOWER([result_title]), "gender") OR CONTAINS(LOWER([result_title]), "kjønn") OR REGEXP_MATCH(LOWER([result_title]), "\bsex\b")
+  OR CONTAINS (LOWER([Title]), "maternal") OR CONTAINS (LOWER([Title]), "maternity") OR CONTAINS(LOWER([Title]), "mother")
+  OR REGEXP_MATCH(LOWER([Title]), "\bmor\b") OR REGEXP_MATCH(LOWER([Title]), "\bmoren\b") OR CONTAINS(LOWER([Title]), "mødre")
   ))
 THEN 'womenshealth'
 ELSE NULL
