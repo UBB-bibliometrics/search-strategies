@@ -122,8 +122,8 @@ AND
   CONTAINS (LOWER([result_title]), "woman") OR CONTAINS (LOWER([result_title]), "women") OR CONTAINS(LOWER([result_title]), "girl") OR CONTAINS (LOWER([result_title]), "female")
   OR CONTAINS(LOWER([result_title]), "kvinne") OR CONTAINS(LOWER([result_title]), "jente")
   OR CONTAINS(LOWER([result_title]), "gender") OR CONTAINS(LOWER([result_title]), "kjønn") OR REGEXP_MATCH(LOWER([result_title]), "\bsex\b")
-  OR CONTAINS (LOWER([Title]), "maternal") OR CONTAINS (LOWER([Title]), "maternity") OR CONTAINS(LOWER([Title]), "mother")
-  OR REGEXP_MATCH(LOWER([Title]), "\bmor\b") OR REGEXP_MATCH(LOWER([Title]), "\bmoren\b") OR CONTAINS(LOWER([Title]), "mødre")
+  OR CONTAINS (LOWER([result_title]), "maternal") OR CONTAINS (LOWER([result_title]), "maternity") OR CONTAINS(LOWER([result_title]), "mother")
+  OR REGEXP_MATCH(LOWER([result_title]), "\bmor\b") OR REGEXP_MATCH(LOWER([result_title]), "\bmoren\b") OR CONTAINS(LOWER([result_title]), "mødre")
   ))
 THEN 'womenshealth'
 ELSE NULL
