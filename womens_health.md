@@ -1,6 +1,6 @@
 # Women's health search string
 
-Status: In progress unfinished draft.
+Status: Finished string version (11/09/2025)
 
 Author: Caroline Armitage, University of Bergen
 
