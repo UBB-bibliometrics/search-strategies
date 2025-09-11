@@ -99,19 +99,25 @@ IF
 ((
 CONTAINS(LOWER([scientific_area_npi]), "medisin og helsefag")
 OR CONTAINS (LOWER([result_title]), "health") OR CONTAINS(LOWER([result_title]), "helse")
-OR CONTAINS(LOWER([result_title]), "disease") OR CONTAINS(LOWER([result_title]), "sykdom")
+OR CONTAINS(LOWER([result_title]), "disease") OR CONTAINS(LOWER([result_title]), "sykdom") 
+OR REGEXP_MATCH(LOWER([result_title]), "\bsyke") OR REGEXP_MATCH(LOWER([result_title]), "\bsyk\b") // will find sykehus, sykemeldt etc.
 OR CONTAINS(LOWER([result_title]), "injuries") OR CONTAINS(LOWER([result_title]), "injury") OR CONTAINS(LOWER([result_title]), "skade")
 OR CONTAINS(LOWER([result_title]), "violence") OR REGEXP_MATCH(LOWER([result_title]), "\bvold") 
 OR CONTAINS(LOWER([result_title]), "mortality") OR CONTAINS(LOWER([result_title]), "død")
 OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), "klinikk") OR CONTAINS(LOWER([result_title]), "klinisk")
-OR CONTAINS(LOWER([result_title]), "back pain") OR CONTAINS(LOWER([result_title]), "auto-immun") OR CONTAINS(LOWER([result_title]), "autoimmun") OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "stroke") OR CONTAINS(LOWER([result_title]), "heart disease") OR CONTAINS(LOWER([result_title]), "headache") OR CONTAINS(LOWER([result_title]), "migrene")
-OR CONTAINS(LOWER([result_title]), "anxiety") OR CONTAINS(LOWER([result_title]), "depression")
+OR CONTAINS(LOWER([result_title]), "hospital") OR CONTAINS(LOWER([result_title]), "hospice") 
+OR CONTAINS(LOWER([result_title]), "back pain") OR CONTAINS(LOWER([result_title]), "auto-immun") OR CONTAINS(LOWER([result_title]), "autoimmun") 
+OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "stroke") OR CONTAINS(LOWER([result_title]), "heart disease") 
+OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "hypertension") OR CONTAINS(LOWER([result_title]), "heart failure") 
+OR CONTAINS(LOWER([result_title]), "headache") OR CONTAINS(LOWER([result_title]), "migrene")
+OR CONTAINS(LOWER([result_title]), "anxiety") OR CONTAINS(LOWER([result_title]), "depression") 
+OR CONTAINS(LOWER([result_title]), "substance") OR CONTAINS(LOWER([result_title]), "alcohol")
 )
 AND
   (
   CONTAINS (LOWER([result_title]), "woman") OR CONTAINS (LOWER([result_title]), "women") OR CONTAINS(LOWER([result_title]), "girl") OR CONTAINS (LOWER([result_title]), "female")
   OR CONTAINS(LOWER([result_title]), "kvinne") OR CONTAINS(LOWER([result_title]), "jente")
-  OR CONTAINS(LOWER([result_title]), "gender") OR CONTAINS(LOWER([result_title]), "kjønn") OR REGEXP_MATCH(LOWER([result_title]), "\bsex\b")
+  OR CONTAINS(LOWER([result_title]), "gender") OR CONTAINS(LOWER([result_title]), "kjønn") OR REGEXP_MATCH(LOWER([result_title]), "\bsex\b") OR REGEXP_MATCH(LOWER([result_title]), "\bsex-")
   OR CONTAINS (LOWER([result_title]), "maternal") OR CONTAINS (LOWER([result_title]), "maternity") OR CONTAINS(LOWER([result_title]), "mother")
   OR REGEXP_MATCH(LOWER([result_title]), "\bmor\b") OR REGEXP_MATCH(LOWER([result_title]), "\bmoren\b") OR CONTAINS(LOWER([result_title]), "mødre")
   OR [scientific_field_npi]=="Kjønnsforskning"
