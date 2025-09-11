@@ -108,7 +108,7 @@ OR CONTAINS(LOWER([result_title]), "clinic") OR CONTAINS(LOWER([result_title]), 
 OR CONTAINS(LOWER([result_title]), "hospital") OR CONTAINS(LOWER([result_title]), "hospice") 
 OR CONTAINS(LOWER([result_title]), "back pain") OR CONTAINS(LOWER([result_title]), "auto-immun") OR CONTAINS(LOWER([result_title]), "autoimmun") 
 OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "stroke") OR CONTAINS(LOWER([result_title]), "heart disease") 
-OR CONTAINS(LOWER([result_title]), "osteoporos") OR CONTAINS(LOWER([result_title]), "hypertension") OR CONTAINS(LOWER([result_title]), "heart failure") 
+OR CONTAINS(LOWER([result_title]), "hypertension") OR CONTAINS(LOWER([result_title]), "heart failure") 
 OR CONTAINS(LOWER([result_title]), "headache") OR CONTAINS(LOWER([result_title]), "migrene")
 OR CONTAINS(LOWER([result_title]), "anxiety") OR CONTAINS(LOWER([result_title]), "depression") 
 OR CONTAINS(LOWER([result_title]), "substance") OR CONTAINS(LOWER([result_title]), "alcohol")
