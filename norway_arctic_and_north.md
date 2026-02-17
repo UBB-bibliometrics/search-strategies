@@ -2,6 +2,8 @@
 
 Authors: Caroline S. Armitage, University of Bergen Library
 
+Date: February 2026
+
 Two search strings: One for Tableau, one for Web of Science.
 
 ## Scope
@@ -11,7 +13,7 @@ Northern Norway is defined as the 3 northern fylker (Finnmark, Troms, Nordland).
 
 > "I stortingsmelding 9 (2020-2021) Mennesker, muligheter og norske interesser i nord definerte Utenriksdepartementet nordområdene som «land- og havområdene fra Sør-Helgeland i sør til Grønlandshavet i vest og Petsjorahavet (det sørøstlige hjørnet av Barentshavet) i øst. Begrepet er særlig forbundet med ivaretagelse av norske interesser gjennom ulike satsinger og grenseoverskridende samarbeid på Nordkalotten og i Barentsregionen." https://snl.no/stortingsmelding
 
-The seas and oceans included may expand on this definition slightly to improve recall. The search string may find research to do with Antarctica/south polar areas, which will need to be excluded manually. 
+The seas, oceans and broad geographical areas included may expand on this definition to improve recall (e.g. "arctic"). The search string may also find research to do with the Antarctic/south polar areas. Irrelevant publications will need to be excluded manually. 
 
 ## Search strategy - Tableau
 
