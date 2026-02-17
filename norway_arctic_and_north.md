@@ -1,6 +1,6 @@
 # Northern Norway and Arctic Norway research search string
 
-Authors: Caroline S. Armitage, University of Bergen
+Authors: Caroline S. Armitage, University of Bergen Library
 
 Two search strings: One for Tableau, one for Web of Science.
 
