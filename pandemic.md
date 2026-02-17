@@ -4,6 +4,8 @@ Bestilling: Pandemic Centre at UiB
 
 Date: Spring 2025
 
+Authors: Caroline S. Armitage and Eli Heldaas Seland, University of Bergen Library
+
 Resulting report: https://hdl.handle.net/11250/3182716
 
 ## Scope
